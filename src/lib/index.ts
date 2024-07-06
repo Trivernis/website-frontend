@@ -15,15 +15,15 @@ export type ImageMetadata = {
 	altText?: string;
 
 	formats: {
-		ext: string;
+		ext?: string;
 		url: string;
-		hash: string;
+		hash?: string;
 		mime: string;
 		name: string;
 		path?: string;
-		size: number;
-		width: number;
-		height: number;
-		sizeInBytes: number;
+		size?: number;
+		width?: number;
+		height?: number;
+		sizeInBytes?: number;
 	}[];
 };

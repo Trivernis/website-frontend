@@ -1,34 +1,32 @@
 <script lang="ts">
+  import type { ImageMetadata } from "$lib";
   import "$lib/vars.scss";
   import { onMount } from "svelte";
 
-  export let sources: {
-    src: string;
-    type: string;
-  }[];
+  export let imageData: ImageMetadata;
 
-  export let caption: string | undefined = undefined;
-  export let alt: string | undefined = undefined;
-  export let border = true;
+  let alt: string | undefined = undefined;
 
   onMount(() => {
     alt =
-      alt ?? caption ?? "Unfortunately theres no description for this image.";
+      imageData.altText ??
+      imageData.caption ??
+      "Unfortunately theres no description for this image.";
   });
 </script>
 
-<div class="image" class:border={border}>
+<div class="image">
   <figure>
     <picture>
-      {#each sources as source}
-        <source type={source.type} srcset={source.src} />
+      {#each imageData.formats as format}
+        <source media={format.width? `(min-width: ${format.width * 2}px)` : "(min-width: 0px)"} type={format.mime} srcset={format.url} />
       {/each}
-      <img src={sources[0]?.src} {alt} class:rounded={!border} />
+      <img src={imageData.formats[0]?.url} {alt} />
     </picture>
 
-    {#if caption}
+    {#if imageData.caption}
       <figcaption>
-        {caption}
+        {imageData.caption}
       </figcaption>
     {/if}
   </figure>
@@ -37,34 +35,23 @@
 <style lang="scss">
   @layer component {
     .image {
-      &.border {
-        border-radius: 10px;
-        padding: 1em;
-        background-color: var(--color-image-frame);
-
-        figure {
-          margin: 0.5em;          
-        }
-      }
+      border-radius: 10px;
+      padding: 1em;
+      background-color: var(--color-image-frame);
 
       figure {
         max-width: 100%;
         display: flex;
         flex-direction: column;
-        margin: auto;
+        margin: 0.5em;
 
         picture {
           img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-
-            &.rounded {
-              border-radius: 10px;
-            }
           }
         }
-
 
         figcaption {
           padding-top: 0.75em;

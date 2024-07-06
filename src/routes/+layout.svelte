@@ -40,7 +40,7 @@
       }
 
       @include landscape {
-        margin: 0 30%;
+        margin: 0 25%;
       }
     }
 

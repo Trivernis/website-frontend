@@ -25,9 +25,21 @@ export type BlogPostTeaser = {
 
 export type BlogPost = BlogPostTeaser & {
 	attributes: {
-		content: any;
+		content: BlogPostContentEntry[];
 	};
 };
+
+type BlogPostContentTemplate<S, T> = {
+	id: number;
+	__component: S;
+} & T;
+
+export type BlogPostContentEntry =
+	| BlogPostContentTemplate<
+			"content.text-markdown",
+			{ value: string; type: "paragraph" | "infobox" }
+	  >
+	| BlogPostContentTemplate<"content.image", { value: { data: StrapiImage } }>;
 
 export async function getPosts(locale = "all"): Promise<BlogPostTeaser[]> {
 	return await fetchApi<BlogPostTeaser[]>({
@@ -70,6 +82,9 @@ export async function getPost(slug: string): Promise<BlogPost> {
 					populate: ["slug", "name"],
 				},
 				teaserImage: {
+					populate: "*",
+				},
+				content: {
 					populate: "*",
 				},
 			},
