@@ -1,5 +1,8 @@
 import qs from "qs";
-import { STRAPI_CMS_API_KEY, STRAPI_CMS_URL } from "$env/static/private";
+import { env } from "$env/dynamic/private";
+
+const STRAPI_CMS_API_KEY = env.STRAPI_CMS_API_KEY;
+const STRAPI_CMS_URL = env.STRAPI_CMS_URL;
 
 interface Props {
 	endpoint: string;
