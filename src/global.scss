@@ -1,32 +1,36 @@
 @import url(sanitize.css);
-
-:root {
-  --color-background: #3A2A4D;
-  --color-background-dark: #2B1C3D;
-  --color-foreground: #ffffff;
-  --color-foreground-tint: #ffd1f8;
-  --color-foreground-dim: #acbacd;
-  --color-primary: #ff79c6;
-  --color-purple: #bd93f9;
-  --color-cyan: #8be9fd;
-  --color-green: #50fa7b;
-  --color-red: #ff5555;
-  --color-orange: #ffb86c;
-  --color-yellow: #f1fa8c;
-}
+@import "$lib/vars.scss";
 
 @layer default {
   body {
     font-family: Lexend, Arial, Helvetica, sans-serif;
     color: var(--color-foreground);
     background-color: var(--color-background);
+    font-size: 14pt;
   }
 
   a {
     color: var(--color-primary);
 
     &:hover {
-      background-color: var(--color-background-dark);
+      background-color: var(--color-background-light);
     }
   }
+
+  .flex-row {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .flex-column {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@font-face {
+  font-family: "Filo";
+  font-style: normal;
+  font-weight: 500;
+  src: local(""), url("/fonts/Filo/Filo.ttf"), url("/fonts/Filo/Filo.otf");
 }

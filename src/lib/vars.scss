@@ -1,0 +1,35 @@
+:root {
+  --color-background: #2B1C3D;
+  --color-background-light: #3A2A4D;
+  --color-foreground: #ffffff;
+  --color-foreground-tint: #ffd1f8;
+  --color-foreground-dim: #acbacd;
+  --color-primary: #ff79c6;
+  --color-purple: #bd93f9;
+  --color-cyan: #8be9fd;
+  --color-green: #50fa7b;
+  --color-red: #ff5555;
+  --color-orange: #ffb86c;
+  --color-yellow: #f1fa8c;
+  --color-image-frame: #fff;
+  --color-image-frame-text: #204;
+}
+
+@mixin mobile() {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
+
+@mixin landscape() {
+  @media (min-aspect-ratio: 16/10) {
+    @content;
+  }
+}
+
+
+@mixin portrait() {
+  @media (max-aspect-ratio: 10/16) {
+    @content;
+  }
+}
