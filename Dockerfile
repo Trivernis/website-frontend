@@ -9,7 +9,7 @@ COPY . .
 RUN npm run build
 
 
-FROM docker.io/node:20.5.0-alpine
+FROM docker.io/node:20.15.0-alpine
 
 WORKDIR /app
 COPY package.json package-lock.json ./
