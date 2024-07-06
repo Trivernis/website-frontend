@@ -1,5 +1,13 @@
 FROM docker.io/node:20.15.0-alpine AS builder
 
+ARG STRAPI_CMS_URL
+ENV STRAPI_CMS_URL $STRAPI_CMS_URL  
+
+ARG STRAPI_CMS_API_KEY
+ENV STRAPI_CMS_API_KEY $STRAPI_CMS_API_KEY
+
+ENV NODE_ENV production
+
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
