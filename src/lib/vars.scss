@@ -22,7 +22,7 @@
 }
 
 @mixin landscape() {
-  @media (min-aspect-ratio: 16/10) {
+  @media (min-aspect-ratio: 16/11) {
     @content;
   }
 }

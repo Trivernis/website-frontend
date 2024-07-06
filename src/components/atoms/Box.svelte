@@ -12,7 +12,7 @@
 @layer component {
   .box {
     padding: 0.5em;
-    border: 1px solid var(--box-color);
+    border: 2px solid var(--box-color);
     border-radius: 10px;
     margin: auto;
     height: auto;

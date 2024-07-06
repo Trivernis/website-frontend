@@ -26,6 +26,11 @@
     display: flex;
     flex-direction: column;
   }
+
+  .unstyled-link {
+    text-decoration: inherit;
+    color: inherit;
+  }
 }
 
 @font-face {

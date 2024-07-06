@@ -4,6 +4,7 @@
 
 <nav class="navigation">
   <a class="nav-item" href="/">Home</a>
+  <a class="nav-item" href="/blog">Blog</a>
 </nav>
 
 <style lang="scss">

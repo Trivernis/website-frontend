@@ -9,7 +9,7 @@
   <div class="flex-row text-and-image">
     <div class="text">
       <p>
-        Welcome to my website. I'm a software developer and tinkerer from
+        Heyyy. I'm a software developer and tinkerer from
         Germany. I do a lot of stuff so this website is an attempt in providing
         an overview.
       </p>
