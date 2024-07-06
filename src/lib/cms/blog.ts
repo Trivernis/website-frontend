@@ -23,6 +23,12 @@ export type BlogPostTeaser = {
 	};
 };
 
+export type BlogPost = BlogPostTeaser & {
+	attributes: {
+		content: any;
+	};
+};
+
 export async function getPosts(locale = "all"): Promise<BlogPostTeaser[]> {
 	return await fetchApi<BlogPostTeaser[]>({
 		endpoint: "blog-posts",
@@ -43,6 +49,36 @@ export async function getPosts(locale = "all"): Promise<BlogPostTeaser[]> {
 				},
 			},
 			locale,
+		},
+	});
+}
+
+export async function getPost(slug: string): Promise<BlogPost> {
+	return await fetchApi<BlogPost>({
+		endpoint: "blog-posts",
+		wrappedByKey: "data",
+		wrappedByList: true,
+		query: {
+			populate: {
+				author: {
+					populate: ["slug", "name"],
+				},
+				collection: {
+					populate: ["slug", "name"],
+				},
+				tags: {
+					populate: ["slug", "name"],
+				},
+				teaserImage: {
+					populate: "*",
+				},
+			},
+			filters: {
+				slug: {
+					$eq: slug,
+				},
+			},
+			locale: "all",
 		},
 	});
 }

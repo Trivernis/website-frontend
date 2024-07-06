@@ -8,6 +8,7 @@ export const load: PageLoad = async ({ params }: { params: unknown }) => {
 
 		return {
 			posts,
+			error: undefined,
 		};
 	} catch (err: any) {
 		console.error(err);
