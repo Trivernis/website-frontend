@@ -21,7 +21,6 @@
 
   @layer component {
     .container {
-      transition-duration: 1s;
       display: flex;
       flex-direction: row;
 

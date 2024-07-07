@@ -8,7 +8,6 @@
   @layer component {
     .container-medium {
       margin: 0 10%;
-      transition-duration: 1s;
       display: block;
 
       @include portrait {

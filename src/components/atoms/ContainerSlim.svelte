@@ -8,7 +8,6 @@
   @layer component {
     .container-slim {
       margin: 0 20%;
-      transition-duration: 1s;
       display: block;
 
       @include portrait {
