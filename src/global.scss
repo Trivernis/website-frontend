@@ -86,4 +86,8 @@
       text-decoration: inherit;
       color: inherit;
     }
+
+    [data-neko] {
+      z-index: 999 !important;
+    }
   }
