@@ -31,6 +31,8 @@
 </div>
 
 <style lang="scss">
+  @import "$lib/styles/mixins.scss";
+  
   @layer component {
     .page-title {
       display: flex;
@@ -48,6 +50,10 @@
       );
       text-shadow: 0px 0px 0.5em var(--color-primary);
       user-select: none;
+
+      @include portrait {
+        font-size: 1.8em;
+      }
 
       h1,
       h6 {
