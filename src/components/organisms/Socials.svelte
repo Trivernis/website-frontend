@@ -6,5 +6,6 @@
   Fediverse: <code>@trivernis@social.funkyfish.cool</code>
   <br />
   Matrix: <code>@trivernis:trivernis.net</code>
+  <br />
   Email: <code>me@trivernis.net</code>
 </Box>
