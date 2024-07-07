@@ -5,7 +5,7 @@
 </script>
 
 <h1>Welcome to my website</h1>
-<Box>
+<Box title="About">
   <div class="flex-row text-and-image">
     <div class="text">
       <p>
