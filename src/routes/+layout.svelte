@@ -17,8 +17,6 @@
 <style lang="scss">
   @import "$lib/vars.scss";
 
-  @layer default, layout;
-
   @layer layout {
     .page {
       position: absolute;
