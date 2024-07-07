@@ -4,6 +4,7 @@ import fetchApi from "./client";
 export type BlogPostTeaser = {
 	id: number;
 	attributes: {
+		locale: string;
 		title: string;
 		createdAt: string;
 		updatedAt: string;

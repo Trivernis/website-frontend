@@ -1,6 +1,4 @@
 <script lang="ts">
-  import "$lib/vars.scss";
-
   export let color = "primary"
   export let title: string | undefined = undefined;
 </script>
@@ -23,6 +21,7 @@
   .box {
     position: relative;
     --box-border-color: color-mix(in srgb, var(--box-color), #fff 65%);
+    --box-text-color: color-mix(in srgb, var(--box-color), var(--color-foreground) 90%);
 
     padding: 1em;
     border: 5px solid var(--box-border-color);
@@ -33,6 +32,7 @@
     box-shadow: 0 0 20px var(--box-color), inset 0 0 20px var(--box-color);
 
     &.with-title {
+      margin-top: 2em;
       border-top: transparent;
       padding-top: 1.25em;
     }
@@ -54,9 +54,9 @@
       .title-label {
         transform: translateY(-1em);
         padding: 0.25em;
-        background-color: color-mix(in srgb, var(--color-background) 50%, transparent);
-        border-radius: 50%;
-        box-shadow: 0 0 20px var(--color-background);
+        border-radius: 10%;
+        color: var(--box-text-color);
+        text-shadow: 0 0 20px var(--box-color);
         z-index: 99;
       }
 

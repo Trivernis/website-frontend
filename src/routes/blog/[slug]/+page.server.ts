@@ -1,10 +1,8 @@
 import { getPost, getPosts } from "$lib/cms/blog";
-import { error } from "@sveltejs/kit";
-import type { PageLoad } from "./$types";
+import { error, redirect } from "@sveltejs/kit";
+import type { PageServerLoad } from "./$types";
 
-export const load: PageLoad = async ({
-	params,
-}: { params: { slug: string } }) => {
+export const load: PageServerLoad = async ({ params }) => {
 	try {
 		const slug = params.slug;
 		const post = await getPost(slug);
@@ -16,7 +14,7 @@ export const load: PageLoad = async ({
 	} catch (err: any) {
 		console.error(err);
 		return {
-			posts: [],
+			post: undefined,
 			error: {
 				message: "Could not load blog post :(",
 				code: 500,

@@ -1,9 +1,59 @@
 @import url(sanitize.css);
 @import "$lib/vars.scss";
 
+@font-face {
+  font-family: "Filo";
+  font-style: normal;
+  font-weight: 500;
+  src: local(""), url("/fonts/Filo/Filo.otf"), url("/fonts/Filo/Filo.ttf");
+}
+
+@font-face {
+  font-family: "GradientVector";
+  font-style: normal;
+  font-weight: 500;
+  src: local(""), url("/fonts/GradientVector/GradientVector.otf");
+}
+
+
+@font-face {
+  font-family: "Manifold";
+  font-style: normal;
+  font-weight: 500;
+  src: local(""), url("/fonts/Manifold/manifold.otf"), url("/fonts/Manifold/manifold.ttf");
+}
+
+
+@font-face {
+  font-family: "3270";
+  font-style: normal;
+  font-weight: 500;
+  src: local(""), url("/fonts/3270/3270SemiCondensed-Regular.otf"), url("/fonts/3270/3270SemiCondensed-Regular.ttf");
+}
+
+:root {
+  --color-background: #2B1C3D;
+  --color-background-light: #3A2A4D;
+  --color-foreground: #ffffff;
+  --color-foreground-tint: #ffd1f8;
+  --color-foreground-dim: #acbacd;
+  --color-primary: #ff79c6;
+  --color-purple: #bd93f9;
+  --color-cyan: #8be9fd;
+  --color-green: #50fa7b;
+  --color-red: #ff5555;
+  --color-orange: #ffb86c;
+  --color-yellow: #f1fa8c;
+  --color-image-frame: #fff;
+  --color-image-frame-text: #204;
+
+  --font-primary: Manifold, Lexend, Arial, Helvetica, sans-serif;
+  --font-readable: "3270", Lexend, Arial, Helvetica, sans-serif;
+}
+
 @layer default {
   body {
-    font-family: Lexend, Arial, Helvetica, sans-serif;
+    font-family: var(--font-primary);
     color: var(--color-foreground);
     background-color: var(--color-background);
     font-size: 14pt;
@@ -25,7 +75,7 @@
     display: flex;
     flex-direction: row;
   }
-  
+
   .flex-column {
     display: flex;
     flex-direction: column;
@@ -35,11 +85,4 @@
     text-decoration: inherit;
     color: inherit;
   }
-}
-
-@font-face {
-  font-family: "Filo";
-  font-style: normal;
-  font-weight: 500;
-  src: local(""), url("/fonts/Filo/Filo.ttf"), url("/fonts/Filo/Filo.otf");
 }

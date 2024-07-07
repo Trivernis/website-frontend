@@ -3,6 +3,7 @@
   import "$lib/vars.scss";
   import Box from "../atoms/Box.svelte";
   import Markdown from "../atoms/Markdown.svelte";
+  import Paragraph from "../atoms/Paragraph.svelte";
   import Image from "../molecules/Image.svelte";
 
   export let content: BlogPostContentEntry;
@@ -11,11 +12,16 @@
 <div class="post-content">
   {#if content.__component === "content.text-markdown"}
     {#if content.type === "paragraph"}
-      <Markdown markdown={content.value} />
+      <Box>
+        <Paragraph>
+          <Markdown markdown={content.value} />
+        </Paragraph>
+      </Box>
     {:else if content.type === "infobox"}
-      <Box color="cyan">
-        <b class="info-label">Info</b>
-        <Markdown markdown={content.value} />
+      <Box color="cyan" title="Info">
+        <Paragraph>
+          <Markdown markdown={content.value} />
+        </Paragraph>
       </Box>
     {/if}
   {:else if content.__component === "content.image"}

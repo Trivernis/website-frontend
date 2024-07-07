@@ -1,12 +1,32 @@
 <script lang="ts">
-    import { formatDateRelative } from "$lib";
+  import { formatDateRelative } from "$lib";
+  import { onMount } from "svelte";
   import Box from "../../../components/atoms/Box.svelte";
   import Error from "../../../components/molecules/Error.svelte";
   import Thumbnail from "../../../components/molecules/Thumbnail.svelte";
   import BlogPostContent from "../../../components/organisms/BlogPostContent.svelte";
   import type { PageData } from "./$types";
+  import { beforeNavigate } from "$app/navigation";
 
   export let data: PageData;
+
+  onMount(() => {
+    if (!data.post) {
+      return;
+    }
+    const url = new URL(window.location.href);
+    const lang = url.searchParams.get("lang");
+
+    if (data.post.attributes.locale !== lang) {
+      document
+        .querySelector("html")
+        ?.setAttribute("lang", data.post.attributes.locale);
+    }
+  });
+
+  beforeNavigate(() => {
+    document.querySelector("html")?.setAttribute("lang", "en");
+  });
 </script>
 
 {#if data.post}
@@ -21,7 +41,11 @@
         <h1>{post.attributes.title}</h1>
         <h3>by {author?.name}</h3>
         {#if collection}
-          <h4>in <a href={`/blog/collection/${collection.slug}`}>{collection?.name}</a></h4>
+          <h4>
+            in <a href={`/blog/collection/${collection.slug}`}
+              >{collection?.name}</a
+            >
+          </h4>
         {/if}
         <span>{formatDateRelative(post.attributes.publishedAt)}</span>
       </div>
@@ -37,12 +61,10 @@
       {/if}
     </Box>
   </div>
-  <Box>
-    {#each post.attributes.content as contentEntry}
-      <BlogPostContent content={contentEntry} />
-    {/each}
-  </Box>
-{:else}
+  {#each post.attributes.content as contentEntry}
+    <BlogPostContent content={contentEntry} />
+  {/each}
+{:else if !data.error}
   <Error error={{ message: "Could not find the post" }} />
 {/if}
 

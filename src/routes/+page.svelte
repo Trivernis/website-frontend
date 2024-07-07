@@ -1,6 +1,7 @@
 <script>
   import "$lib/vars.scss";
   import Box from "../components/atoms/Box.svelte";
+    import Paragraph from "../components/atoms/Paragraph.svelte";
   import Thumbnail from "../components/molecules/Thumbnail.svelte";
 </script>
 
@@ -8,10 +9,13 @@
 <Box title="About">
   <div class="flex-row text-and-image">
     <div class="text">
-      <p>
+      <Paragraph>
         Heyyy. I'm a software developer and tinkerer from Germany. I do a lot of
         stuff so this website is an attempt in providing an overview.
-      </p>
+        <br><br>
+        Right now it's very much a work in progress as I'm figuring out how to 
+        properly design a website (lol). But there's already some content to explore.
+      </Paragraph>
     </div>
     <div class="image">
       <Thumbnail
