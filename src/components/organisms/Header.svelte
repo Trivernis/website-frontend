@@ -5,7 +5,7 @@
 </script>
 
 <div class="header">
-  <Box color="purple">
+  <Box color="purple" margin="slim">
     <Navigation/>
   </Box>
 </div>
