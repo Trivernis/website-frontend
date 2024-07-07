@@ -45,6 +45,11 @@
       alt: "screamingegg",
       href: "https://screamingegg.neocities.org/",
     },
+    {
+      src: "https://file.garden/ZZSxuqU5uT7zKhQh/webrsc/buttonz50.gif",
+      alt: "sevs funhouse",
+      href: "https://zoneoffun.neocities.org/"
+    }
   ];
 
   shuffle(buttons);
