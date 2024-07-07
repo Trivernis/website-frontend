@@ -1,5 +1,6 @@
 <script lang="ts">
   import { page } from "$app/stores";
+  import "$lib/styles/neon-start.scss";
 
   let title = "Trivernis";
   let secondaryTitle: string | undefined = undefined;
@@ -50,6 +51,7 @@
       );
       text-shadow: 0px 0px 0.5em var(--color-primary);
       user-select: none;
+      animation: neon-start 3s;
 
       @include portrait {
         font-size: 1.8em;
