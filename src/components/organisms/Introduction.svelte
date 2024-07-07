@@ -7,7 +7,7 @@
 
 </script>
 <Box title="About">
-  <ContainerDualColumn leftWidth="34%" rightWidth="63%">
+  <ContainerDualColumn leftRatio="1" rightRatio="2">
     <Thumbnail
       slot="left"
       imageData={{

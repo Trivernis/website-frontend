@@ -1,11 +1,11 @@
 <script lang="ts">
-  export let leftWidth = "50%";
-  export let rightWidth = "50%";
+  export let leftRatio = "1";
+  export let rightRatio = "1";
 </script>
 
 <div
   class="container"
-  style={`--column-left-width: ${leftWidth}; --column-right-width: ${rightWidth}`}
+  style={`--column-left-flex: ${leftRatio}; --column-right-flex: ${rightRatio}`}
 >
   <div class="column-left">
     <slot name="left" />
@@ -31,7 +31,8 @@
       }
 
       .column-left {
-        width: var(--column-left-width);
+        height: 100%;
+        flex: var(--column-left-flex);
 
         @include portrait {
           width: 100%;
@@ -40,6 +41,8 @@
 
       .column-spacer {
         width: 2em;
+        display: flex;
+        height: 2em;
 
         @include portrait {
           display: none;
@@ -47,7 +50,8 @@
       }
 
       .column-right {
-        width: var(--column-right-width);
+        height: 100%;
+        flex: var(--column-right-flex);
 
         @include portrait {
           width: 100%;

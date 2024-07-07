@@ -28,6 +28,7 @@
 		"moment": "^2.30.1",
 		"qs": "^6.12.2",
 		"sanitize.css": "^13.0.0",
-		"svelte-markdown": "^0.4.1"
+		"svelte-markdown": "^0.4.1",
+		"svg-round-corners": "^0.4.3"
 	}
 }
