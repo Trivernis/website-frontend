@@ -1,20 +1,22 @@
 <script>
   import "$lib/vars.scss";
-    import Box from "../atoms/Box.svelte";
+  import Box from "../atoms/Box.svelte";
+    import Buttons from "../molecules/Buttons.svelte";
 </script>
 
 <div class="footer">
   <Box color="purple">
+    <Buttons />
     <div class="justified">
       <div class="left">
         <span><i>CC0 Public Domain, 2024</i></span>
       </div>
       <div class="center">
-      <span>Made with and powered by 🐇</span>
+        <span>Made with and powered by 🐇</span>
       </div>
       <div class="right">
-      <a href="/privacy">Privacy</a>
-        </div>
+        <a href="/privacy">Privacy</a>
+      </div>
     </div>
   </Box>
 </div>
@@ -34,7 +36,9 @@
         flex-direction: row;
         justify-content: space-between;
 
-        .left, .right, .center {
+        .left,
+        .right,
+        .center {
           width: 33%;
           display: flex;
           flex-direction: row;
@@ -51,6 +55,6 @@
           padding-right: 0.5em;
         }
       }
-    }    
-  } 
+    }
+  }
 </style>

@@ -80,12 +80,13 @@
         border-radius: 10px;
 
         .title-label {
-          transform: translateY(-1em);
+          transform: translateY(-0.9em);
           padding: 0.25em;
           border-radius: 10%;
           color: var(--box-text-color);
           text-shadow: 0 0 20px var(--box-color);
           z-index: 99;
+          white-space: nowrap;
         }
 
         .border-left {
