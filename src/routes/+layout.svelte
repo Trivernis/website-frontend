@@ -32,6 +32,7 @@
     .footer-position {
       margin: 0;
       width: 100%;
+      padding-top: 1em;
       margin-top: auto;
     }
   }

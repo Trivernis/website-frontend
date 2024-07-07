@@ -16,7 +16,6 @@
     src: local(""), url("/fonts/GradientVector/GradientVector.otf");
   }
 
-
   @font-face {
     font-family: "Manifold";
     font-style: normal;
@@ -24,20 +23,11 @@
     src: local(""), url("/fonts/Manifold/manifold.otf"), url("/fonts/Manifold/manifold.ttf");
   }
 
-
   @font-face {
     font-family: "3270";
     font-style: normal;
     font-weight: 500;
     src: local(""), url("/fonts/3270/3270SemiCondensed-Regular.otf"), url("/fonts/3270/3270SemiCondensed-Regular.ttf");
-  }
-
-
-  @font-face {
-    font-family: "Sixtyfour";
-    font-style: normal;
-    font-weight: 300;
-    src: local(""), url("/fonts/Sixtyfour/Sixtyfour[wdth,wght].ttf"), url("/fonts/Sixtyfour/Sixtyfour[wdth,wght].woff"), url("/fonts/Sixtyfour/Sixtyfour[wdth,wght].woff2");
   }
 
   :root {
@@ -58,7 +48,7 @@
 
     --font-primary: Manifold, Lexend, Arial, Helvetica, sans-serif;
     --font-readable: "3270", Lexend, Arial, Helvetica, sans-serif;
-    --font-page-title: Sixtyfour, Manifold, Lexend, Arial, Helvetica, sans-serif;
+    --font-page-title: GradientVector, Manifold, Lexend, Arial, Helvetica, sans-serif;
   }
 
 

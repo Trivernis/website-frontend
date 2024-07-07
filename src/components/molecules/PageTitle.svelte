@@ -1,13 +1,33 @@
 <script lang="ts">
-  export let title: string;
-  export let secondaryTitle: string | undefined = undefined;
+  import { page } from "$app/stores";
+
+  let title = "Trivernis";
+  let secondaryTitle: string | undefined = undefined;
+
+  let titleHref = "/";
+  let secondaryTitleHref = "/";
+
+  page.subscribe((pageData) => {
+    const path = pageData.url.pathname;
+
+    if (path.startsWith("/blog")) {
+      title = "Blog";
+      secondaryTitle = "Trivernis";
+      titleHref = "/blog"
+    } else {
+      title = "Trivernis";
+      secondaryTitle = undefined;
+    }
+  });
 </script>
 
 <div class="page-title" class:with-secondary={secondaryTitle}>
   {#if secondaryTitle}
-    <h6>{secondaryTitle}</h6>
+    <h6>
+      <a class="unstyled-link" href={secondaryTitleHref}>{secondaryTitle}</a>
+    </h6>
   {/if}
-  <h1>{title}</h1>
+  <h1><a class="unstyled-link" href={titleHref}>{title}</a></h1>
 </div>
 
 <style lang="scss">
@@ -27,11 +47,15 @@
         var(--color-foreground) 90%
       );
       text-shadow: 0px 0px 0.5em var(--color-primary);
+      user-select: none;
 
       h1,
-      h3 {
+      h6 {
         width: 100%;
-        z-index: -100;
+        cursor: pointer;
+      }
+      a:hover {
+        background: inherit;
       }
 
       margin: 1em 0 0.75em 0;
@@ -49,7 +73,6 @@
     h6 {
       margin: 0;
       font-size: 0.5em;
-      font-weight: lighter;
     }
   }
 </style>
