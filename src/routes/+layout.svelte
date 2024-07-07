@@ -4,7 +4,7 @@
   import Footer from "../components/organisms/Footer.svelte";
 </script>
 
-<div class="page">
+<div class="page crt">
   <Header />
   <div class="content">
     <slot />

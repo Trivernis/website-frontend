@@ -84,7 +84,7 @@
 
       .head-text {
         width: 100%;
-        z-index: 100;
+        z-index: 10;
         padding: 1em;
         h1 {
           margin-top: 0;
@@ -99,7 +99,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        z-index: -100;
+        z-index: -10;
       }
     }
   </style>
