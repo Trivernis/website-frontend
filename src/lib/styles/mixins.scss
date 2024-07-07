@@ -1,0 +1,18 @@
+@mixin mobile() {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
+
+@mixin landscape() {
+  @media (min-aspect-ratio: 16/11) {
+    @content;
+  }
+}
+
+
+@mixin portrait() {
+  @media (max-aspect-ratio: 10/16) {
+    @content;
+  }
+}

@@ -30,19 +30,6 @@
       display: flex;
       flex-direction: column;
     }
-    .content {
-      margin: 0 20%;
-      transition-duration: 1s;
-      display: block;
-
-      @include portrait {
-        margin: 0 5%;
-      }
-
-      @include landscape {
-        margin: 0 25%;
-      }
-    }
 
     .footer-position {
       margin: 0;
