@@ -21,6 +21,7 @@
       height: 31px;
       width: 88px;
       padding: 0;
+      overflow: hidden;
     }
   }
 </style>

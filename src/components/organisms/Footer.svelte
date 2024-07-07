@@ -1,7 +1,8 @@
-<script>
+<script lang="ts">
   import "$lib/vars.scss";
   import Box from "../atoms/Box.svelte";
-    import Buttons from "../molecules/Buttons.svelte";
+  import Buttons from "../molecules/Buttons.svelte";
+  import Neko from "./Neko.svelte";
 </script>
 
 <div class="footer">
@@ -12,7 +13,9 @@
         <span><i>CC0 Public Domain, 2024</i></span>
       </div>
       <div class="center">
-        <span>Made with and powered by 🐇</span>
+        <span class="powered-by">
+          Made with and powered by <Neko />
+        </span>
       </div>
       <div class="right">
         <a href="/privacy">Privacy</a>
@@ -23,6 +26,14 @@
 
 <style lang="scss">
   @layer component {
+    #neko-anchor {
+      background: transparent;
+      border: none;
+      display: inline;
+      height: 100%;
+      position: relative;
+    }
+
     .footer {
       height: auto;
       min-height: 3em;
@@ -30,6 +41,10 @@
       display: block;
       width: 100%;
       padding: 1em;
+
+      .powered-by {
+        font-size: 24px;
+      }
 
       .justified {
         display: flex;
@@ -56,5 +71,10 @@
         }
       }
     }
+  }
+
+  :global([data-neko]) {
+    z-index: 999 !important;
+    pointer-events: inherit !important;
   }
 </style>

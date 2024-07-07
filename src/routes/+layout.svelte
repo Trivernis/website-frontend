@@ -2,15 +2,6 @@
   import "../global.scss";
   import Header from "../components/organisms/Header.svelte";
   import Footer from "../components/organisms/Footer.svelte";
-
-  import { Neko } from "neko-ts";
-    import { onMount } from "svelte";
-
-  onMount(() => {
-    new Neko({
-      speed: 10
-    });
-  });
 </script>
 
 <div class="page crt">
