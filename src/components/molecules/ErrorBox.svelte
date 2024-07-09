@@ -1,17 +1,22 @@
 <script lang="ts">
   import "$lib/vars.scss";
-    import { onMount } from "svelte";
+  import { onMount } from "svelte";
   import Box from "../atoms/Box.svelte";
 
-  export let error: {
-    message: string;
-    code?: number;
+  type Props = {
+    error: {
+      message: string;
+      code?: number;
+    };
   };
-  let url = "";
+
+  const { error }: Props = $props();
+
+  let url = $state("/");
 
   onMount(() => {
     url = window.location.href;
-  })
+  });
 </script>
 
 <Box color="red">

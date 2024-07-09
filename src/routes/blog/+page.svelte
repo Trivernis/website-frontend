@@ -1,10 +1,14 @@
 <script lang="ts">
   import type { PageData } from "./$types";
-  import Error from "../../components/molecules/Error.svelte";
+  import ErrorBox from "../../components/molecules/ErrorBox.svelte";
   import BlogPostTeaser from "../../components/organisms/BlogPostTeaser.svelte";
   import ContainerSlim from "../../components/atoms/ContainerSlim.svelte";
 
-  export let data: PageData;
+  type Props = {
+    data: PageData;
+  };
+
+  const { data }: Props = $props();
 </script>
 
 <ContainerSlim>
@@ -15,6 +19,6 @@
   {/each}
 
   {#if data.error}
-    <Error error={data.error} />
+    <ErrorBox error={data.error} />
   {/if}
 </ContainerSlim>

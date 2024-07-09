@@ -1,13 +1,17 @@
 <script lang="ts">
   import { formatDateRelative } from "$lib";
   import Box from "../../../components/atoms/Box.svelte";
-  import Error from "../../../components/molecules/Error.svelte";
+  import ErrorBox from "../../../components/molecules/ErrorBox.svelte";
   import Thumbnail from "../../../components/molecules/Thumbnail.svelte";
   import BlogPostContent from "../../../components/organisms/BlogPostContent.svelte";
   import type { PageData } from "./$types";
   import ContainerSlim from "../../../components/atoms/ContainerSlim.svelte";
 
-  export let data: PageData;
+  type Props = {
+    data: PageData;
+  };
+
+  const { data }: Props = $props();
 </script>
 
 <ContainerSlim>
@@ -49,11 +53,11 @@
       {/each}
     </div>
   {:else if !data.error}
-    <Error error={{ message: "Could not find the post" }} />
+    <ErrorBox error={{ message: "Could not find the post" }} />
   {/if}
 
   {#if data.error}
-    <Error error={data.error} />
+    <ErrorBox error={data.error} />
   {/if}
 </ContainerSlim>
 

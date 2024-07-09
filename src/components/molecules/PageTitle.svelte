@@ -6,7 +6,7 @@
   let secondaryTitle: string | undefined = undefined;
 
   let titleHref = "/";
-  let secondaryTitleHref = "/";
+  const secondaryTitleHref = "/";
 
   page.subscribe((pageData) => {
     const path = pageData.url.pathname;
@@ -14,7 +14,7 @@
     if (path.startsWith("/blog")) {
       title = "Blog";
       secondaryTitle = "Trivernis";
-      titleHref = "/blog"
+      titleHref = "/blog";
     } else {
       title = "Trivernis";
       secondaryTitle = undefined;
@@ -33,7 +33,7 @@
 
 <style lang="scss">
   @import "$lib/styles/mixins.scss";
-  
+
   @layer component {
     .page-title {
       display: flex;

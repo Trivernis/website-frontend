@@ -2,14 +2,24 @@
   import type { ImageMetadata } from "$lib";
   import "$lib/vars.scss";
 
-  export let imageData: ImageMetadata | undefined = undefined;
+  type Props = {
+    imageData?: ImageMetadata;
+  };
+
+  const { imageData }: Props = $props();
 </script>
 
 <div class="thumbnail">
   {#if imageData}
     <picture>
       {#each imageData.formats as format}
-        <source media={format.width? `(min-width: ${format.width * 2}px)` : "(min-width: 0px)"} type={format.mime} srcset={format.url} />
+        <source
+          media={format.width
+            ? `(min-width: ${format.width * 2}px)`
+            : "(min-width: 0px)"}
+          type={format.mime}
+          srcset={format.url}
+        />
       {/each}
       <img src={imageData.formats[0]?.url} alt={imageData.altText} />
     </picture>

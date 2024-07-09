@@ -7,7 +7,8 @@
 		"build": "vite build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"ide:format": "prettier --stdin-filepath=source.svelte --plugin prettier-plugin-svelte"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^3.0.0",
@@ -16,8 +17,10 @@
 		"@sveltejs/vite-plugin-svelte": "^3.0.0",
 		"@types/qs": "^6.9.15",
 		"mdsvex": "^0.11.2",
+		"prettier": "^3.3.2",
+		"prettier-plugin-svelte": "^3.2.5",
 		"sass": "^1.77.6",
-		"svelte": "^4.2.7",
+		"svelte": "^5.0.0-next.176",
 		"svelte-check": "^3.6.0",
 		"tslib": "^2.4.1",
 		"typescript": "^5.0.0",
@@ -25,10 +28,10 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"marked": "^13.0.2",
 		"moment": "^2.30.1",
 		"qs": "^6.12.2",
 		"sanitize.css": "^13.0.0",
-		"svelte-markdown": "^0.4.1",
 		"svg-round-corners": "^0.4.3"
 	}
 }

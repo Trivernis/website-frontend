@@ -5,7 +5,11 @@
   import { formatDateAbsolute, formatDateRelative } from "$lib";
   import Thumbnail from "../molecules/Thumbnail.svelte";
 
-  export let post: BlogPostTeaser;
+  type Props = {
+    post: BlogPostTeaser;
+  };
+
+  const { post }: Props = $props();
 </script>
 
 <a class="unstyled-link" href={`/blog/${post.attributes.slug}`}>
@@ -26,9 +30,8 @@
       <div class="teaser-text">
         {#if collection}
           <h5 class="collection-title">
-            in <a href={`/blog/collection/${collection.slug}`}>
-              {collection.name}
-            </a>
+            in
+            {collection.name}
           </h5>
         {/if}
         <h3>{post.attributes.title}</h3>
@@ -37,14 +40,12 @@
           >{formatDateRelative(post.attributes.publishedAt)}</span
         >
         {#if tags.length > 0}
-          <div class="tag-padding" />
-        <div class="post-tags">
-          {#each tags as tag}
-            <span class="tag"
-              ><a href={`/blog/tag/${tag.slug}`}>{tag.name}</a></span
-            >
-          {/each}
-        </div>
+          <div class="tag-padding"></div>
+          <div class="post-tags">
+            {#each tags as tag}
+              <span class="tag">{tag.name}</span>
+            {/each}
+          </div>
         {/if}
       </div>
       {#if post.attributes.teaserImage?.data}

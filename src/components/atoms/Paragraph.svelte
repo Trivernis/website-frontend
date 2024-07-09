@@ -1,5 +1,15 @@
+<script lang="ts">
+  import type { Snippet } from "svelte";
+
+  type Props = {
+    children: Snippet;
+  };
+
+  const { children }: Props = $props();
+</script>
+
 <div class="paragraph">
-  <slot/>
+  {@render children()}
 </div>
 
 <style lang="scss">
@@ -9,6 +19,7 @@
       hyphens: auto;
       text-align: justify;
       cursor: text;
+      font-size: 15pt;
     }
   }
 </style>

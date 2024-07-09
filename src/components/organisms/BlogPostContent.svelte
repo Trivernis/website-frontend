@@ -6,7 +6,11 @@
   import Paragraph from "../atoms/Paragraph.svelte";
   import Image from "../molecules/Image.svelte";
 
-  export let content: BlogPostContentEntry;
+  type Props = {
+    content: BlogPostContentEntry;
+  };
+
+  const { content }: Props = $props();
 </script>
 
 <div class="post-content">
@@ -40,9 +44,6 @@
   @layer component {
     .post-content {
       margin: 1em 0;
-    }
-    .info-label {
-      color: var(--color-cyan);
     }
   }
 </style>

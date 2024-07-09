@@ -8,14 +8,14 @@
   onMount(() => {
     if (nekoElement && nekoParentElement) {
       new Neko(nekoElement, nekoParentElement, {
-        defaultState: "sleep"
+        defaultState: "sleep",
       });
     }
   });
 </script>
 
 <div class="neko-parent" bind:this={nekoParentElement}>
-  <div id="neko" class="neko" bind:this={nekoElement} />
+  <div id="neko" class="neko" bind:this={nekoElement}></div>
 </div>
 
 <style lang="scss">

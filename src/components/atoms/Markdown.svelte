@@ -1,7 +1,13 @@
 <script lang="ts">
-    import SvelteMarkdown from "svelte-markdown";
+  import { marked } from "marked";
 
-  export let markdown: string;
+  type Props = {
+    markdown: string;
+  };
+
+  const { markdown }: Props = $props();
+
+  const markdownHtml = marked(markdown);
 </script>
 
-<SvelteMarkdown source={markdown}/>
+{@html markdownHtml}

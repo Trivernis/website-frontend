@@ -1,8 +1,19 @@
 <script lang="ts">
-  export let color = "primary";
-  export let title: string | undefined = undefined;
+import type { Snippet } from "svelte";
 
-  export let margin: "slim" | "medium" | "wide" = "medium";
+type Props = {
+	color?: string;
+	title?: string;
+	margin?: "slim" | "medium" | "wide";
+	children: Snippet;
+};
+
+const {
+	color = "primary",
+	title,
+	margin = "medium",
+	children,
+}: Props = $props();
 </script>
 
 <div
@@ -19,7 +30,7 @@
       <div class="border-right"></div>
     </div>
   {/if}
-  <slot />
+  {@render children()}
 </div>
 
 <style lang="scss">

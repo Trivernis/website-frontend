@@ -1,7 +1,11 @@
 <script lang="ts">
-  export let src: string;
-  export let alt: string = "88x31 Button";
-  export let href: string | undefined = undefined;
+type Props = {
+	src: string;
+	alt?: string;
+	href?: string;
+};
+
+const { src, alt = "88x31 Button", href }: Props = $props();
 </script>
 
 <div class="button-88-31">

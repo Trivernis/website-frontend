@@ -2,12 +2,19 @@
   import "../global.scss";
   import Header from "../components/organisms/Header.svelte";
   import Footer from "../components/organisms/Footer.svelte";
+  import type { Snippet } from "svelte";
+
+  type Props = {
+    children: Snippet;
+  };
+
+  const { children }: Props = $props();
 </script>
 
 <div class="page crt">
   <Header />
   <div class="content">
-    <slot />
+    {@render children()}
   </div>
   <div class="footer-position">
     <Footer />

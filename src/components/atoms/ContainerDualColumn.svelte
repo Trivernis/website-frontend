@@ -1,6 +1,14 @@
 <script lang="ts">
-  export let leftRatio = "1";
-  export let rightRatio = "1";
+import type { Snippet } from "svelte";
+
+type Props = {
+	left: Snippet;
+	right: Snippet;
+	leftRatio?: string;
+	rightRatio?: string;
+};
+
+const { leftRatio = "1", rightRatio = "1", left, right }: Props = $props();
 </script>
 
 <div
@@ -8,11 +16,11 @@
   style={`--column-left-flex: ${leftRatio}; --column-right-flex: ${rightRatio}`}
 >
   <div class="column-left">
-    <slot name="left" />
+    {@render left()}
   </div>
-  <div class="column-spacer" />
+  <div class="column-spacer"></div>
   <div class="column-right">
-    <slot name="right" />
+    {@render right()}
   </div>
 </div>
 

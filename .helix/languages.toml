@@ -1,0 +1,4 @@
+[[language]]
+name = "svelte"
+auto-format = true
+formatter = { command = "npm", args = ["run", "--silent", "ide:format"] }

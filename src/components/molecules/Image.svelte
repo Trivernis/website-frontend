@@ -1,25 +1,30 @@
 <script lang="ts">
   import type { ImageMetadata } from "$lib";
   import "$lib/vars.scss";
-  import { onMount } from "svelte";
 
-  export let imageData: ImageMetadata;
+  type Props = {
+    imageData: ImageMetadata;
+  };
 
-  let alt: string | undefined = undefined;
+  const { imageData }: Props = $props();
 
-  onMount(() => {
-    alt =
-      imageData.altText ??
-      imageData.caption ??
-      "Unfortunately theres no description for this image.";
-  });
+  const alt: string | undefined =
+    imageData.altText ??
+    imageData.caption ??
+    "Unfortunately theres no description for this image.";
 </script>
 
 <div class="image">
   <figure>
     <picture>
       {#each imageData.formats as format}
-        <source media={format.width? `(min-width: ${format.width}px)` : "(min-width: 0px)"} type={format.mime} srcset={format.url} />
+        <source
+          media={format.width
+            ? `(min-width: ${format.width}px)`
+            : "(min-width: 0px)"}
+          type={format.mime}
+          srcset={format.url}
+        />
       {/each}
       <img src={imageData.formats[0]?.url} {alt} />
     </picture>

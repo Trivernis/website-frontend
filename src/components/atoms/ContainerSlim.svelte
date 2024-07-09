@@ -1,5 +1,15 @@
+<script lang="ts">
+import type { Snippet } from "svelte";
+
+type Props = {
+	children: Snippet;
+};
+
+const { children }: Props = $props();
+</script>
+
 <div class="container-slim">
-  <slot />
+  {@render children()}
 </div>
 
 <style lang="scss">

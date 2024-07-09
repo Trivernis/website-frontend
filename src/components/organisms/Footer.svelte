@@ -26,14 +26,6 @@
 
 <style lang="scss">
   @layer component {
-    #neko-anchor {
-      background: transparent;
-      border: none;
-      display: inline;
-      height: 100%;
-      position: relative;
-    }
-
     .footer {
       height: auto;
       min-height: 3em;
