@@ -48,8 +48,3 @@
     {/snippet}
   </ContainerDualColumn>
 </ContainerMedium>
-
-<style lang="scss">
-  @layer page {
-  }
-</style>

@@ -1,19 +1,19 @@
 <script lang="ts">
-import type { Snippet } from "svelte";
+  import type { Snippet } from "svelte";
 
-type Props = {
-	color?: string;
-	title?: string;
-	margin?: "slim" | "medium" | "wide";
-	children: Snippet;
-};
+  type Props = {
+    color?: string;
+    title?: string;
+    margin?: "slim" | "medium" | "wide";
+    children: Snippet;
+  };
 
-const {
-	color = "primary",
-	title,
-	margin = "medium",
-	children,
-}: Props = $props();
+  const {
+    color = "primary",
+    title,
+    margin = "medium",
+    children,
+  }: Props = $props();
 </script>
 
 <div
@@ -43,6 +43,7 @@ const {
         var(--box-color),
         var(--color-foreground) 90%
       );
+      --color-context: var(--box-border-color);
 
       border: 5px solid var(--box-border-color);
       border-radius: 10px;

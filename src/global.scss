@@ -45,9 +45,11 @@
     --color-yellow: #f1fa8c;
     --color-image-frame: #fff;
     --color-image-frame-text: #204;
+    --color-context: var(--color-primary);
 
     --font-primary: Manifold, Lexend, Arial, Helvetica, sans-serif;
     --font-readable: "3270", Lexend, Arial, Helvetica, sans-serif;
+    --font-monospace: Fira Code, monospace;
     --font-page-title: GradientVector, Manifold, Lexend, Arial, Helvetica, sans-serif;
   }
 
