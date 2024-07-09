@@ -1,20 +1,22 @@
 <script lang="ts">
-  import type { Snippet } from "svelte";
+  import { marked } from "marked";
 
   type Props = {
-    children: Snippet;
+    markdown: string;
   };
 
-  const { children }: Props = $props();
+  const { markdown }: Props = $props();
+
+  const markdownHtml = marked(markdown);
 </script>
 
-<div class="paragraph">
-  {@render children()}
+<div class="markdown">
+  {@html markdownHtml}
 </div>
 
 <style lang="scss">
   @layer component {
-    .paragraph {
+    .markdown {
       font-family: var(--font-readable);
       hyphens: auto;
       text-align: justify;

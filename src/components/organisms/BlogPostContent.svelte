@@ -2,8 +2,7 @@
   import type { BlogPostContentEntry } from "$lib/cms/blog";
   import "$lib/vars.scss";
   import Box from "../atoms/Box.svelte";
-  import Markdown from "../atoms/Markdown.svelte";
-  import Paragraph from "../atoms/Paragraph.svelte";
+  import Markdown from "../molecules/Markdown.svelte";
   import Image from "../molecules/Image.svelte";
 
   type Props = {
@@ -17,15 +16,11 @@
   {#if content.__component === "content.text-markdown"}
     {#if content.type === "paragraph"}
       <Box>
-        <Paragraph>
-          <Markdown markdown={content.value} />
-        </Paragraph>
+        <Markdown markdown={content.value} />
       </Box>
     {:else if content.type === "infobox"}
       <Box color="cyan" title="Info">
-        <Paragraph>
-          <Markdown markdown={content.value} />
-        </Paragraph>
+        <Markdown markdown={content.value} />
       </Box>
     {/if}
   {:else if content.__component === "content.image"}
