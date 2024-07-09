@@ -6,6 +6,7 @@
   import List from "../atoms/List.svelte";
   import ListItem from "../atoms/ListItem.svelte";
   import HighlightedCode from "../atoms/HighlightedCode.svelte";
+  import HorizontalRuler from "../atoms/HorizontalRuler.svelte";
 
   type Props = {
     markdown: string;
@@ -17,7 +18,7 @@
 </script>
 
 {#snippet markdownToken(token)}
-  {#if token.type === "text"}
+  {#if token.type === "text" && !token.tokens}
     {token.text}
   {:else if token.type === "heading"}
     <Heading depth={token.depth}>
@@ -31,6 +32,8 @@
     <HighlightedCode language={token.language} code={token.text} />
   {:else if token.type === "space"}
     <Space />
+  {:else if token.type === "hr"}
+    <HorizontalRuler />
   {:else if token.type === "list"}
     <List ordered={token.ordered} start={token.start}>
       {#each token.items as item}
@@ -44,7 +47,11 @@
       {/each}
     </ListItem>
   {:else}
-    <pre>{JSON.stringify(token, null, 2)}</pre>
+    <h4 style="color: var(--color-red)">This needs to be rendered</h4>
+    <HighlightedCode
+      language="markdown"
+      code={JSON.stringify(token, null, 2)}
+    />
   {/if}
 {/snippet}
 

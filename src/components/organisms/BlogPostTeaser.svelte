@@ -16,9 +16,9 @@
   <Box>
     {@const collection = post.attributes.collection.data?.attributes}
     {@const author = post.attributes.author.data?.attributes}
-    {@const tags = post.attributes.tags.data?.map((d) => d.attributes)}
-    {@const teaserImage = post.attributes.teaserImage.data.attributes}
-    {@const imageData = {
+    {@const tags = post.attributes.tags.data?.map((d) => d?.attributes)}
+    {@const teaserImage = post.attributes.teaserImage.data?.attributes}
+    {@const imageData = teaserImage && {
       altText: teaserImage.alternativeText,
       formats: [teaserImage.formats.small, teaserImage.formats.thumbnail],
     }}
@@ -35,7 +35,7 @@
           </h5>
         {/if}
         <h3>{post.attributes.title}</h3>
-        <span>by {author?.name}</span>,
+        <span>by {author?.name ?? "Anonymous Mouse"}</span>,
         <span title={formatDateAbsolute(post.attributes.publishedAt)}
           >{formatDateRelative(post.attributes.publishedAt)}</span
         >
@@ -48,7 +48,7 @@
           </div>
         {/if}
       </div>
-      {#if post.attributes.teaserImage?.data}
+      {#if imageData}
         <div class="teaser-image">
           <Thumbnail {imageData} />
         </div>

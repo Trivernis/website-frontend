@@ -47,6 +47,7 @@ export async function getPosts(locale = "all"): Promise<BlogPostTeaser[]> {
 		endpoint: "blog-posts",
 		wrappedByKey: "data",
 		query: {
+			sort: ["publishedAt:DESC"],
 			populate: {
 				author: {
 					populate: ["slug", "name"],

@@ -43,7 +43,7 @@
         var(--box-color),
         var(--color-foreground) 90%
       );
-      --color-context: var(--box-border-color);
+      --color-context: var(--box-color);
 
       border: 5px solid var(--box-border-color);
       border-radius: 10px;

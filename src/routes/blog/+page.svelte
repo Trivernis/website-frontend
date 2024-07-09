@@ -15,10 +15,20 @@
   <h1>Blog</h1>
 
   {#each data.posts ?? [] as post}
-    <BlogPostTeaser {post} />
+    <div class="teaser-container">
+      <BlogPostTeaser {post} />
+    </div>
   {/each}
 
   {#if data.error}
     <ErrorBox error={data.error} />
   {/if}
 </ContainerSlim>
+
+<style lang="scss">
+  @layer page {
+    .teaser-container {
+      margin: 2em 0;
+    }
+  }
+</style>

@@ -26,7 +26,7 @@
         <Box>
           <div class="head-text">
             <h1>{post.attributes.title}</h1>
-            <h3>by {author?.name}</h3>
+            <h3>by {author?.name ?? "Anonymous Mouse"}</h3>
             {#if collection}
               <h4>
                 in <a href={`/blog/collection/${collection.slug}`}
