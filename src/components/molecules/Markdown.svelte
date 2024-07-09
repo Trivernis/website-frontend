@@ -48,10 +48,7 @@
     </ListItem>
   {:else}
     <h4 style="color: var(--color-red)">This needs to be rendered</h4>
-    <HighlightedCode
-      language="markdown"
-      code={JSON.stringify(token, null, 2)}
-    />
+    <HighlightedCode language="json" code={JSON.stringify(token, null, 2)} />
   {/if}
 {/snippet}
 
