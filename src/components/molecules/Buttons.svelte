@@ -4,8 +4,9 @@
   import allButtons from "$lib/buttons";
 
   const buttons = $derived.by(() => {
-    shuffle([...allButtons]);
-    return allButtons;
+    const newList = [...allButtons];
+    shuffle(newList);
+    return newList;
   });
 </script>
 
