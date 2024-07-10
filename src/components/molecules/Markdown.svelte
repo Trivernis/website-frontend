@@ -14,8 +14,10 @@
   import TableRow from "../atoms/TableRow.svelte";
   import TableCell from "../atoms/TableCell.svelte";
   import Image from "../atoms/Image.svelte";
-  import { markedEmoji } from "marked-emoji";
   import emojis from "$lib/emojis";
+  import { smartypants } from "$lib/utils";
+
+  import { markedEmoji } from "marked-emoji";
 
   type Props = {
     markdown: string;
@@ -24,6 +26,7 @@
   const { markdown }: Props = $props();
 
   marked.use(markedEmoji({ emojis }));
+
   const markdownTokens = marked.lexer(markdown);
 </script>
 
@@ -93,7 +96,7 @@
       {@render markdownToken(childToken)}
     {/each}
   {:else if token.text}
-    {token.text}
+    {@html smartypants(token.text)}
   {:else}{@html "<!-- This token does not hold value -->"}{/if}
 {/snippet}
 

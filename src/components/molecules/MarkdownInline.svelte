@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { Token } from "marked";
   import HighlightedCode from "../atoms/HighlightedCode.svelte";
+  import { smartypants } from "$lib/utils";
 
   type Props = {
     markdownToken: Token;
@@ -35,8 +36,11 @@
     {#each token.tokens as childToken}
       {@render inlineMarkdown(childToken)}
     {/each}
-  {:else}
+  {:else if token.type === "codespan"}
+    <!-- don't smartypants code -->
     {@html token.text}
+  {:else}
+    {@html smartypants(token.text)}
   {/if}
 {/snippet}
 
