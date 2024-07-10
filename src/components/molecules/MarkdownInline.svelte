@@ -24,7 +24,7 @@
   {:else if token.type === "codespan"}
     <code>{@render tokenValue(token)}</code>
   {:else if token.type === "emoji"}
-    <span class="emoji">{token.emoji}</span>
+    <span class="emoji" title={token.name}>{token.emoji}</span>
   {:else}
     <h4 style="color: var(--color-red)">This needs to be rendered</h4>
     <HighlightedCode code={JSON.stringify(token, null, 2)} />
