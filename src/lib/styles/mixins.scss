@@ -16,3 +16,7 @@
     @content;
   }
 }
+
+@mixin lighten-color($property, $color, $amount: 65%) {
+  #{$property}: color-mix(in srgb, $color, #fff $amount);
+}

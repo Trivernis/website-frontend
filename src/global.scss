@@ -30,12 +30,21 @@
     src: local(""), url("/fonts/3270/3270SemiCondensed-Regular.otf"), url("/fonts/3270/3270SemiCondensed-Regular.ttf");
   }
 
+
+  @font-face {
+    font-family: "Symbola";
+    font-style: normal;
+    font-weight: 500;
+    src: local(""), url("/fonts/Symbola/Symbola.otf");
+  }
+
   :root {
     --color-background: #2B1C3D;
     --color-background-light: #3A2A4D;
     --color-foreground: #ffffff;
     --color-foreground-tint: #ffd1f8;
     --color-foreground-dim: #acbacd;
+    --color-foreground-hint: #886C9C;
     --color-primary: #ff79c6;
     --color-purple: #bd93f9;
     --color-cyan: #8be9fd;
@@ -50,6 +59,7 @@
     --font-primary: Manifold, Lexend, Arial, Helvetica, sans-serif;
     --font-readable: "3270", Lexend, Arial, Helvetica, sans-serif;
     --font-monospace: Fira Code, monospace;
+    --font-emoji: Symbola, Twemoji, "Twemoji Mozilla", Noto-Emoji, sans-serif;
     --font-page-title: GradientVector, Manifold, Lexend, Arial, Helvetica, sans-serif;
   }
 

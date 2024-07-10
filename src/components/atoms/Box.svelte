@@ -34,10 +34,12 @@
 </div>
 
 <style lang="scss">
+  @import "$lib/styles/mixins.scss";
+
   @layer component {
     .box {
       position: relative;
-      --box-border-color: color-mix(in srgb, var(--box-color), #fff 65%);
+      @include lighten-color(--box-border-color, var(--box-color));
       --box-text-color: color-mix(
         in srgb,
         var(--box-color),
