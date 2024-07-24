@@ -4,6 +4,7 @@
   import Box from "../atoms/Box.svelte";
   import Markdown from "../molecules/Markdown.svelte";
   import Image from "../molecules/Image.svelte";
+  import Infobox from "../molecules/Infobox.svelte";
 
   type Props = {
     content: BlogPostContentEntry;
@@ -19,9 +20,9 @@
         <Markdown markdown={content.value} />
       </Box>
     {:else if content.type === "infobox"}
-      <Box color="cyan" title="Info">
+      <Infobox title="title">
         <Markdown markdown={content.value} />
-      </Box>
+      </Infobox>
     {/if}
   {:else if content.__component === "content.image"}
     {@const imageData = content.value.data.attributes}

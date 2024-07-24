@@ -4,6 +4,7 @@
   type Props = {
     color?: string;
     title?: string;
+    titleElement?: Snippet;
     margin?: "slim" | "medium" | "wide";
     children: Snippet;
   };
@@ -11,6 +12,7 @@
   const {
     color = "primary",
     title,
+    titleElement,
     margin = "medium",
     children,
   }: Props = $props();
@@ -18,14 +20,16 @@
 
 <div
   class={["box", `margin-${margin}`].join(" ")}
-  class:with-title={title}
+  class:with-title={title || titleElement}
   style={`--box-color: var(--color-${color})`}
 >
-  {#if title}
+  {#if title || titleElement}
     <div class="box-title">
       <div class="border-left"></div>
       <div class="left-end-cap"></div>
-      <span class="title-label">{title}</span>
+      <span class="title-label">
+        {#if title}{title}{:else if titleElement}{@render titleElement()}{/if}
+      </span>
       <div class="right-end-cap"></div>
       <div class="border-right"></div>
     </div>
@@ -101,6 +105,7 @@
           text-shadow: 0 0 20px var(--box-color);
           z-index: 99;
           white-space: nowrap;
+          display: inline;
         }
 
         .border-left {
