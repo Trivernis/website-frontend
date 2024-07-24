@@ -107,12 +107,18 @@
 </div>
 
 <style lang="scss">
+  @import "$lib/styles/mixins.scss";
+
   @layer component {
     .markdown {
       hyphens: auto;
       text-align: justify;
       cursor: text;
       font-size: 15pt;
+
+      @include portrait {
+        font-size: 13pt;
+      }
     }
 
     :global(.heading) {
