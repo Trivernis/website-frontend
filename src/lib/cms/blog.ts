@@ -37,9 +37,10 @@ type BlogPostContentTemplate<S, T> = {
 
 export type BlogPostContentEntry =
 	| BlogPostContentTemplate<
-			"content.text-markdown",
-			{ value: string; type: "paragraph" | "infobox" }
+			"content.paragraph" | "content.text-markdown",
+			{ value: string }
 	  >
+	| BlogPostContentTemplate<"content.infobox", { value: string; title: string }>
 	| BlogPostContentTemplate<"content.image", { value: { data: StrapiImage } }>;
 
 export async function getPosts(locale = "all"): Promise<BlogPostTeaser[]> {

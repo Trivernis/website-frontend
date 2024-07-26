@@ -28,7 +28,7 @@
   </Box>
 {:else}
   <button class="hidden-button info-expand" onclick={toggleExpanded}>
-    <span class="arrow down-arrow">⌄</span><span class="info-text">
+    <span class="arrow collapsed-arrow">&gt;</span><span class="info-text">
       Info: {title}
     </span>
   </button>
@@ -62,18 +62,11 @@
         text-decoration: underline 0.2em var(--color-cyan);
       }
 
-      .down-arrow {
+      .collapsed-arrow {
         margin-right: 0.5em;
         position: relative;
         transition-duration: 1s;
-        top: 0.2em;
         color: var(--color-cyan);
-      }
-
-      &:hover {
-        .down-arrow {
-          animation-name: pull-down;
-        }
       }
     }
 
@@ -99,18 +92,6 @@
           animation-name: pull-up;
         }
       }
-    }
-  }
-
-  @keyframes pull-down {
-    0% {
-      top: 0.2em;
-    }
-    50% {
-      top: 0.5em;
-    }
-    100% {
-      top: 0.2em;
     }
   }
 

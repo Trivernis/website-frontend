@@ -34,7 +34,6 @@ export default async function fetchApi<T>({
 	if (query) {
 		url.search = qs.stringify(query);
 	}
-	console.log({ url });
 	const res = await fetch(url.toString(), {
 		headers: {
 			Authorization: `Bearer ${STRAPI_CMS_API_KEY}`,

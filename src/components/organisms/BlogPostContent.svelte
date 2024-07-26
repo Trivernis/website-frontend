@@ -14,16 +14,14 @@
 </script>
 
 <div class="post-content">
-  {#if content.__component === "content.text-markdown"}
-    {#if content.type === "paragraph"}
-      <Box>
-        <Markdown markdown={content.value} />
-      </Box>
-    {:else if content.type === "infobox"}
-      <Infobox title="title">
-        <Markdown markdown={content.value} />
-      </Infobox>
-    {/if}
+  {#if content.__component === "content.paragraph" || content.__component === "content.text-markdown"}
+    <Box>
+      <Markdown markdown={content.value} />
+    </Box>
+  {:else if content.__component === "content.infobox"}
+    <Infobox title={content.title}>
+      <Markdown markdown={content.value} />
+    </Infobox>
   {:else if content.__component === "content.image"}
     {@const imageData = content.value.data.attributes}
     <Image
