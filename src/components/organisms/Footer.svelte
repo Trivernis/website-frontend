@@ -19,6 +19,7 @@
       </div>
       <div class="right">
         <a href="/privacy">Privacy</a>
+        <a href="/imprint">Imprint</a>
       </div>
     </div>
   </Box>
@@ -60,6 +61,9 @@
         .right {
           justify-content: end;
           padding-right: 0.5em;
+          > * {
+            margin: 0 0.5em;
+          }
         }
       }
     }
