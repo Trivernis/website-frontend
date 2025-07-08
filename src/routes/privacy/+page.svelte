@@ -11,7 +11,7 @@
       use advertisement or any metrics collector. No information is sucked from
       your computer. Nothing is tracked. No fingerprints are being collected. If
       you need more information, contact me at
-      <a href="mailto:admin@trivernis.net">admin@trivernis.net</a>.
+      <span>admin</span>@<span>trivernis</span>.<span>net</span>.
     </p>
   </Box>
 </ContainerMedium>

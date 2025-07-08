@@ -5,7 +5,7 @@
 <Box title="Socials" color="green">
   Fediverse: <code>@trivernis@social.funkyfish.cool</code>
   <br />
-  Matrix: <code>@trivernis:trivernis.net</code>
+  Matrix: <code>@trivernis:matrix.funkyfish.cool</code>
   <br />
   Email: <code>me@trivernis.net</code>
 </Box>

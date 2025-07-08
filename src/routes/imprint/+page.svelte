@@ -17,6 +17,6 @@
     <br />
     <br />
     Kontaktdaten:<br />
-    E-Mail: <span>me</span>@<span>trivernis</span>.<span>net</span><br />
+    E-Mail: <span>admin</span>@<span>trivernis</span>.<span>net</span><br />
   </Box>
 </ContainerMedium>

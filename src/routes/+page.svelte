@@ -26,19 +26,37 @@
       <Box title="Projects">
         <ul>
           <li>
-            <a href="https://git.trivernis.net/trivernis/website-frontend"
-              >This Website</a
+            <a href="https://git.trivernis.net/trivernis/pictrs" target="_blank"
+              >pictrs</a
             >
           </li>
           <li>
-            <a href="https://git.trivernis.net/trivernis/silo">Silo</a>
-          </li>
-          <li>
-            <a href="https://git.trivernis.net/trivernis/mediarepo">Mediarepo</a
+            <a href="https://git.trivernis.net/trivernis/fujin" target="_blank"
+              >Fujin</a
             >
           </li>
           <li>
-            <a href="https://git.trivernis.net/trivernis/snekdown">Snekdown</a>
+            <a
+              href="https://git.trivernis.net/trivernis/website-frontend"
+              target="_blank">This Website</a
+            >
+          </li>
+          <li>
+            <a href="https://git.trivernis.net/trivernis/silo" target="_blank"
+              >Silo</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://git.trivernis.net/trivernis/mediarepo"
+              target="_blank">Mediarepo</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://git.trivernis.net/trivernis/snekdown"
+              target="_blank">Snekdown</a
+            >
           </li>
         </ul>
       </Box>
