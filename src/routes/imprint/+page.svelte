@@ -18,5 +18,8 @@
     <br />
     Kontaktdaten:<br />
     E-Mail: <span>admin</span>@<span>trivernis</span>.<span>net</span><br />
+    E-Mail (Alternative): <span>trivernis</span>@<span>protonmail</span>.<span
+      >com</span
+    ><br />
   </Box>
 </ContainerMedium>
