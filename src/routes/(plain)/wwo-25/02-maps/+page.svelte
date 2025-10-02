@@ -22,6 +22,11 @@
     left: 0;
     right: 0;
     bottom: 0;
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.05) 0.1em, transparent 0.1em),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.05) 0.1em, transparent 0.1em);
+    background-size: 100px 100px;
+    background-repeat: repeat;
   }
   .back {
     position: fixed;
