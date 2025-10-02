@@ -8,7 +8,7 @@
 <div class="footer">
   <Box color="purple">
     <Buttons />
-    <div class="justified">
+    <div class="grid">
       <div class="left">
         <span><i>CC0 Public Domain, 2024</i></span>
       </div>
@@ -30,7 +30,6 @@
     .footer {
       height: auto;
       min-height: 3em;
-      max-height: 10em;
       display: block;
       width: 100%;
       padding: 1em;
@@ -39,15 +38,19 @@
         font-size: 24px;
       }
 
-      .justified {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+      .grid {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        width: 100%;
+
+        @media (max-width: 500px) {
+          grid-template-columns: auto;
+          gap: 1em;
+        }
 
         .left,
         .right,
         .center {
-          width: 33%;
           display: flex;
           flex-direction: row;
         }
