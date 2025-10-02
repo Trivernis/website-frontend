@@ -3,6 +3,7 @@
 </script>
 
 <div class="backdrop"></div>
+<a class="button glass" href="./">Back</a>
 <ContainerSlim>
   <div class="glass">T R A N S P A R E N C Y</div>
   <div class="glass roundest">Let</div>
@@ -38,6 +39,16 @@
       inset 10px 10px 10px rgba(255, 255, 255, 0.2),
       inset -10px -10px 10px rgba(0, 0, 0, 0.2),
       10px 10px 10px rgba(0, 0, 0, 0.5);
+
+    &.button {
+      padding: 0.5em;
+      font-size: 20pt;
+      margin: 1em;
+      margin-right: auto;
+      display: inline-block;
+      position: sticky;
+      top: 0;
+    }
   }
 
   .roundest {
@@ -47,5 +58,6 @@
   .clear {
     background-color: rgba(255, 255, 255, 0);
     color: rgba(255, 255, 255, 0.2);
+    margin-bottom: calc(50vh - 1em - 25pt);
   }
 </style>

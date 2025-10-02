@@ -42,6 +42,11 @@ export default [
 		alt: "sevs funhouse",
 		href: "https://zoneoffun.neocities.org/",
 	},
+	{
+		src: "https://octothorp.es/badge.png",
+		href: "https://octothorp.es",
+		alt: "Badge for the Octothorpes main ring",
+	},
 ] as {
 	src: string;
 	alt: string;
