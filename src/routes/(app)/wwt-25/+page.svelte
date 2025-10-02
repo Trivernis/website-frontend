@@ -11,7 +11,6 @@
   <h1>Weird Web October 2025</h1>
   <Box>
     <a href="/wwt-25/01-transparency">1. Transparency</a>
-    <a href="/wwt-25/02-maps">2. Transparency</a>
   </Box>
   <div class="pad"></div>
 </ContainerMedium>
