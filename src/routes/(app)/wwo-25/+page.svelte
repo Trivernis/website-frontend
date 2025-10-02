@@ -10,7 +10,9 @@
 <ContainerMedium>
   <h1>Weird Web October 2025</h1>
   <Box>
-    <a href="/wwt-25/01-transparency">1. Transparency</a>
+    <a href="/wwo-25/01-transparency">1. Transparency</a>
+    <br />
+    <a href="/wwo-25/02-maps">2. Maps</a>
   </Box>
   <div class="pad"></div>
 </ContainerMedium>
