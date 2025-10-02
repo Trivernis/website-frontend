@@ -1,7 +1,7 @@
 <script lang="ts">
-  import "../global.scss";
-  import Header from "../components/organisms/Header.svelte";
-  import Footer from "../components/organisms/Footer.svelte";
+  import "../../global.scss";
+  import Header from "../../components/organisms/Header.svelte";
+  import Footer from "../../components/organisms/Footer.svelte";
   import type { Snippet } from "svelte";
 
   type Props = {

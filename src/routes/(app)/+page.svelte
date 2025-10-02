@@ -1,11 +1,11 @@
 <script>
-  import Box from "../components/atoms/Box.svelte";
-  import ContainerDualColumn from "../components/atoms/ContainerDualColumn.svelte";
-  import ContainerMedium from "../components/atoms/ContainerMedium.svelte";
-  import Filler from "../components/molecules/Filler.svelte";
-  import Introduction from "../components/organisms/Introduction.svelte";
-  import Links from "../components/organisms/Links.svelte";
-  import Socials from "../components/organisms/Socials.svelte";
+  import Box from "../../components/atoms/Box.svelte";
+  import ContainerDualColumn from "../../components/atoms/ContainerDualColumn.svelte";
+  import ContainerMedium from "../../components/atoms/ContainerMedium.svelte";
+  import Filler from "../../components/molecules/Filler.svelte";
+  import Introduction from "../../components/organisms/Introduction.svelte";
+  import Links from "../../components/organisms/Links.svelte";
+  import Socials from "../../components/organisms/Socials.svelte";
 </script>
 
 <ContainerMedium>

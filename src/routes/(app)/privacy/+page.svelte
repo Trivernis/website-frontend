@@ -1,6 +1,6 @@
 <script>
-  import Box from "../../components/atoms/Box.svelte";
-  import ContainerMedium from "../../components/atoms/ContainerMedium.svelte";
+  import Box from "../../../components/atoms/Box.svelte";
+  import ContainerMedium from "../../../components/atoms/ContainerMedium.svelte";
 </script>
 
 <ContainerMedium>

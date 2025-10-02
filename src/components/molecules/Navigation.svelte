@@ -4,6 +4,7 @@
 
 <nav class="navigation">
   <a class="nav-item" href="/">Home</a>
+  <a class="nav-item" href="/wwt-25/">Weird Web October 2025</a>
 </nav>
 
 <style lang="scss">
