@@ -1,3 +1,8 @@
+<svelte:head>
+  <link rel="octo:octothorpes" href="weirdweboctober" />
+  <link rel="octo:octothorpes" href="Maps" />
+</svelte:head>
+
 <div class="page">
   <div class="back">
     <a href="./">Back</a>
