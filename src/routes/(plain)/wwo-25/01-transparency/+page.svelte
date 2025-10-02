@@ -56,6 +56,12 @@
     }
   }
 
+  @media (max-width: 500px) {
+    .glass {
+      font-size: 30pt;
+    }
+  }
+
   .roundest {
     border-radius: 100%;
   }
