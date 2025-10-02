@@ -3,6 +3,10 @@
   import ContainerMedium from "../../../components/atoms/ContainerMedium.svelte";
 </script>
 
+<svelte:head>
+  <link rel="octo:octothorpes" href="weirdweboctober" />
+</svelte:head>
+
 <ContainerMedium>
   <h1>Weird Web October 2025</h1>
   <Box>

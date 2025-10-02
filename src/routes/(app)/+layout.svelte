@@ -3,6 +3,9 @@
   import Header from "../../components/organisms/Header.svelte";
   import Footer from "../../components/organisms/Footer.svelte";
   import type { Snippet } from "svelte";
+  import { page } from "$app/state";
+
+  const preloadHref = `https://octothorp.es/?uri=https://trivernis.net${page.url.pathname}`;
 
   type Props = {
     children: Snippet;
@@ -10,6 +13,10 @@
 
   const { children }: Props = $props();
 </script>
+
+<svelte:head>
+  <link rel="preload" as="fetch" href={preloadHref} />
+</svelte:head>
 
 <div class="page crt">
   <Header />

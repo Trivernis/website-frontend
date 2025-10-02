@@ -2,6 +2,11 @@
   import ContainerSlim from "../../../../components/atoms/ContainerSlim.svelte";
 </script>
 
+<svelte:head>
+  <link rel="octo:octothorpes" href="weirdweboctober" />
+  <link rel="octo:octothorpes" href="Transparency" />
+</svelte:head>
+
 <div class="backdrop"></div>
 <a class="button glass" href="./">Back</a>
 <ContainerSlim>
