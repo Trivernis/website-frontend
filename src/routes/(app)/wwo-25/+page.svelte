@@ -1,4 +1,4 @@
-<script>
+<script lang="typescript">
   import Box from "../../../components/atoms/Box.svelte";
   import ContainerMedium from "../../../components/atoms/ContainerMedium.svelte";
 </script>
@@ -13,6 +13,8 @@
     <a href="/wwo-25/01-transparency">1. Transparency</a>
     <br />
     <a href="/wwo-25/02-maps">2. Maps</a>
+    <br />
+    <a href="/wwo-25/03-scramble">3. Scramble</a>
   </Box>
   <div class="pad"></div>
 </ContainerMedium>
