@@ -1,7 +1,13 @@
 <script lang="typescript">
   import Box from "../../../components/atoms/Box.svelte";
   import ContainerMedium from "../../../components/atoms/ContainerMedium.svelte";
+  import { MetaTags } from "svelte-meta-tags";
 </script>
+
+<MetaTags
+  title="Weird Web October 2025"
+  description="My contributions to the Weird Web October 2025"
+/>
 
 <svelte:head>
   <link rel="octo:octothorpes" href="weirdweboctober" />

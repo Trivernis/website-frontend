@@ -1,3 +1,12 @@
+<script lang="ts">
+  import { MetaTags } from "svelte-meta-tags";
+</script>
+
+<MetaTags
+  title="You are here."
+  description="Weird Web October 2025 - 2. Maps"
+/>
+
 <svelte:head>
   <link rel="octo:octothorpes" href="weirdweboctober" />
   <link rel="octo:octothorpes" href="Maps" />

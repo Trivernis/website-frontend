@@ -1,6 +1,12 @@
-<script>
+<script lang="ts">
   import ContainerSlim from "../../../../components/atoms/ContainerSlim.svelte";
+  import { MetaTags } from "svelte-meta-tags";
 </script>
+
+<MetaTags
+  title="Let me be clear"
+  description="Weird Web October 2025 - 1. Transparency"
+/>
 
 <svelte:head>
   <link rel="octo:octothorpes" href="weirdweboctober" />

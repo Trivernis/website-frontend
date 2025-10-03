@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
+  import { MetaTags } from "svelte-meta-tags";
 
   let positions: { x: number; y: number }[] = $state([]);
 
@@ -103,6 +104,11 @@
     };
   });
 </script>
+
+<MetaTags
+  title="Scramble!"
+  description="Weird Web October 2025 - 3. Scramble"
+/>
 
 <svelte:head>
   <link rel="octo:octothorpes" href="weirdweboctober" />

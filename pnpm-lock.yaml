@@ -29,6 +29,9 @@ importers:
       sanitize.css:
         specifier: ^13.0.0
         version: 13.0.0
+      svelte-meta-tags:
+        specifier: ^4.4.1
+        version: 4.4.1(svelte@5.39.8)
       svg-round-corners:
         specifier: ^0.4.3
         version: 0.4.3
@@ -848,6 +851,9 @@ packages:
     engines: {node: '>=14.0.0'}
     hasBin: true
 
+  schema-dts@1.1.5:
+    resolution: {integrity: sha512-RJr9EaCmsLzBX2NDiO5Z3ux2BVosNZN5jo0gWgsyKvxKIUL5R3swNvoorulAeL9kLB0iTSX7V6aokhla2m7xbg==}
+
   set-cookie-parser@2.7.1:
     resolution: {integrity: sha512-IOc8uWeOZgnb3ptbCURJWNjWUPcO3ZnTTdzsurqERrP6nPyv+paC55vJM0LpOlT2ne+Ix+9+CRG1MNLlyZ4GjQ==}
 
@@ -886,6 +892,11 @@ packages:
     peerDependencies:
       svelte: ^4.0.0 || ^5.0.0-next.0
       typescript: '>=5.0.0'
+
+  svelte-meta-tags@4.4.1:
+    resolution: {integrity: sha512-MFwlw7NNPC22YdNTRzb/O06ASIcqBha+GNX4uRPtG+klWaKIrXvDRwSmc40/sSm38LoRxje0kQdG9yxwENOjEA==}
+    peerDependencies:
+      svelte: ^5.0.0
 
   svelte@5.39.8:
     resolution: {integrity: sha512-KfZ3hCITdxIXTOvrea4nFZX2o+47HPTChKeocgj9BwJQYqWrviVCcPj4boXHF5yf8+eBKqhHY8xii//XaakKXA==}
@@ -1614,6 +1625,8 @@ snapshots:
     optionalDependencies:
       '@parcel/watcher': 2.5.1
 
+  schema-dts@1.1.5: {}
+
   set-cookie-parser@2.7.1: {}
 
   side-channel-list@1.0.0:
@@ -1665,6 +1678,11 @@ snapshots:
       typescript: 5.9.3
     transitivePeerDependencies:
       - picomatch
+
+  svelte-meta-tags@4.4.1(svelte@5.39.8):
+    dependencies:
+      schema-dts: 1.1.5
+      svelte: 5.39.8
 
   svelte@5.39.8:
     dependencies:
