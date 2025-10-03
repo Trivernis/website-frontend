@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+
   let positions: { x: number; y: number }[] = $state([]);
 
   let animationTimeout: number | undefined;
@@ -25,6 +27,14 @@
   }
 
   const speed = 6;
+
+  function startScramble() {
+    let scrambling = true;
+    animationTimeout = setTimeout(() => {
+      scrambling = false;
+      scramble();
+    }, 300);
+  }
 
   function scramble() {
     if (scrambling) {
@@ -81,6 +91,17 @@
   }
 
   reset();
+
+  let light: HTMLElement | undefined;
+
+  onMount(() => {
+    window.onmousemove = (event) => {
+      light?.setAttribute(
+        "style",
+        `left: calc(${event.x}px - 10rem); top: calc(${event.y}px - 10rem)`,
+      );
+    };
+  });
 </script>
 
 <svelte:head>
@@ -89,19 +110,22 @@
 </svelte:head>
 
 <div class="page">
+  <div class="back" onmouseout={reset} onblur={reset} role="application">
+    <a href="./">Back</a>
+  </div>
   <div
     class="critter-area"
-    onmouseover={scramble}
-    onmouseout={reset}
-    onblur={reset}
-    onfocus={scramble}
+    onmouseover={startScramble}
+    onfocus={startScramble}
     role="application"
+    aria-label="A field of critters"
   >
     {#if scrambling}<h1 class="title">Scramble!</h1>{/if}
     {#each positions as pos}
       <div class="critter" style={`top: ${pos.x}%; left: ${pos.y}%`}></div>
     {/each}
   </div>
+  <div class="light" bind:this={light}></div>
 </div>
 
 <style lang="scss">
@@ -134,12 +158,22 @@
   }
   .critter-area {
     margin: auto;
-    height: 30%;
-    width: 30%;
+    height: 10%;
+    width: 10%;
     display: flex;
     .title {
       margin: auto;
       z-index: -100;
     }
+  }
+  .light {
+    position: absolute;
+    display: block;
+    height: 20rem;
+    width: 20rem;
+    z-index: -99;
+    outline: 5000px solid black;
+    box-shadow: inset 0 0 5rem black;
+    border-radius: 100%;
   }
 </style>
