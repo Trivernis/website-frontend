@@ -49,6 +49,7 @@
 
 <style lang="scss">
   .page {
+    font-size: 10pt;
     background-color: black;
     color: white;
     font-family: Lexend, Noto-sans, Verdana, Helvetica, sans-serif;
