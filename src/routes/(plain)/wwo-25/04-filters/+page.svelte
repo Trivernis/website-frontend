@@ -1,5 +1,33 @@
 <script lang="ts">
   import { MetaTags } from "svelte-meta-tags";
+
+  const filterNames = [
+    "filter-red",
+    "filter-blue",
+    "filter-green",
+    "filter-blur",
+    "filter-darken",
+  ];
+  const filters = filterNames.map((f) => ({
+    name: f,
+    angle: 0,
+    position: { x: 0, y: 0 },
+  }));
+
+  for (let i = 0; i < filters.length; i++) {
+    const angle = 2 * Math.PI * (i / filters.length);
+    filters[i].angle = angle;
+    filters[i].position = {
+      x: 100 * Math.cos(angle),
+      y: 100 * Math.sin(angle),
+    };
+  }
+
+  let wheelAngle = $state(0);
+
+  function nextFilter() {
+    wheelAngle += 360 / filters.length;
+  }
 </script>
 
 <MetaTags title="Filters" description="Weird Web October 2025 - 3. Filters" />
@@ -20,15 +48,28 @@
       class="test-image"
     />
   </div>
-  <div class="page-container">
-    <div class="filter filter-red"></div>
+  <div class="page-container wheel-container">
+    <div
+      class="filter-wheel"
+      onclick={nextFilter}
+      aria-hidden="true"
+      style={`transform: rotate(${wheelAngle}deg)`}
+    >
+      {#each filters as filter}
+        <div
+          class={`filter ${filter.name}`}
+          style={`transform: translate(${filter.position.x}%, ${filter.position.y}%)`}
+        ></div>
+      {/each}
+    </div>
   </div>
 </div>
 
 <style lang="scss">
   .page {
-    background-color: white;
-    color: black;
+    background-color: black;
+    color: white;
+    font-family: Lexend, Noto-sans, Verdana, Helvetica, sans-serif;
     position: absolute;
     display: flex;
     height: 100vh;
@@ -40,6 +81,7 @@
     right: 0;
     bottom: 0;
     z-index: -200;
+    user-select: none;
   }
   .page-container {
     position: absolute;
@@ -50,20 +92,53 @@
     left: 0;
   }
   .test-image {
-    width: 45vw;
+    width: 50vw;
     height: auto;
     margin: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 50px white;
+  }
+  .wheel-container {
+    transform: translate(-50vw);
+  }
+  .filter-wheel {
+    position: relative;
+    height: 60vw;
+    width: 60vw;
+    margin: auto;
+    margin-right: 0;
+    transition-duration: 1s;
   }
   .filter {
-    height: 30vw;
-    width: 30vw;
+    height: calc(50% - 15px);
+    width: calc(50% - 15px);
     border-radius: 100%;
     border: 15px solid black;
     outline: 5px dotted black;
-    margin: auto;
+    position: absolute;
+    top: calc(50% - 25% - 15px);
+    left: calc(50% - 25% - 15px);
+    box-shadow: 0 0 50px rgba(255, 255, 255, 0.5);
   }
   .filter-red {
     backdrop-filter: grayscale(1) brightness(1.2);
     background: rgba(255, 0, 0, 0.5);
+  }
+  .filter-green {
+    backdrop-filter: grayscale(1) brightness(1.2);
+    background: rgba(0, 255, 0, 0.5);
+  }
+  .filter-blue {
+    backdrop-filter: grayscale(1) brightness(1.2);
+    background: rgba(0, 0, 255, 0.5);
+  }
+  .filter-blur {
+    backdrop-filter: blur(10px);
+  }
+  .filter-darken {
+    backdrop-filter: brightness(0.6);
+  }
+  .back {
+    z-index: 999;
   }
 </style>
