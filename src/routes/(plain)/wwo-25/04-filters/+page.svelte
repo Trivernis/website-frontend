@@ -149,7 +149,6 @@
     .filter-wheel {
       height: 100vw;
       width: 100vw;
-      transform: scale(1.2);
     }
     .test-image {
       width: 70vw;
@@ -158,7 +157,7 @@
       border: 10px solid black;
       outline: 3px dotted black;
       top: calc(50% - 25% - 3px);
-      left: calc(50% - 26% - 3px);
+      left: calc(50% - 25% - 3px);
     }
   }
 </style>
