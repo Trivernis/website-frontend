@@ -23,6 +23,8 @@
     <a href="/wwo-25/03-scramble">3. Scramble</a>
     <br />
     <a href="/wwo-25/04-filters">4. Filters</a>
+    <br />
+    <a href="/wwo-25/05-remix">5. Remix</a>
   </Box>
   <div class="pad"></div>
 </ContainerMedium>
