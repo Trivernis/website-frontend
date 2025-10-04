@@ -21,6 +21,8 @@
     <a href="/wwo-25/02-maps">2. Maps</a>
     <br />
     <a href="/wwo-25/03-scramble">3. Scramble</a>
+    <br />
+    <a href="/wwo-25/04-filters">4. Filters</a>
   </Box>
   <div class="pad"></div>
 </ContainerMedium>
