@@ -141,4 +141,24 @@
   .back {
     z-index: 999;
   }
+
+  @media (max-width: 650px) {
+    .wheel-container {
+      transform: scale(1.25) translate(-50vw);
+    }
+    .filter-wheel {
+      height: 100vw;
+      width: 100vw;
+      transform: scale(1.2);
+    }
+    .test-image {
+      width: 70vw;
+    }
+    .filter {
+      border: 10px solid black;
+      outline: 3px dotted black;
+      top: calc(50% - 25% - 3px);
+      left: calc(50% - 26% - 3px);
+    }
+  }
 </style>
