@@ -2,10 +2,10 @@
   import { MetaTags } from "svelte-meta-tags";
 
   const filterNames = [
+    "filter-grayscale",
     "filter-red",
     "filter-blue",
     "filter-green",
-    "filter-blur",
     "filter-darken",
   ];
   const filters = filterNames.map((f) => ({
@@ -132,8 +132,8 @@
     backdrop-filter: grayscale(1) brightness(1.2);
     background: rgba(0, 0, 255, 0.5);
   }
-  .filter-blur {
-    backdrop-filter: blur(10px);
+  .filter-grayscale {
+    backdrop-filter: grayscale(1);
   }
   .filter-darken {
     backdrop-filter: brightness(0.6);
