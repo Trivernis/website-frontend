@@ -1,5 +1,6 @@
 <script lang="ts">
   import { MetaTags } from "svelte-meta-tags";
+  import image from "$lib/assets/tokyo-rainbow-bridge.jpg?enhanced";
 
   const filterNames = [
     "filter-grayscale",
@@ -41,9 +42,9 @@
   <div class="back" role="application">
     <a href="./">Back</a>
   </div>
-  <div class="page-container">
-    <img
-      src="/images/tokyo-rainbow-bridge.jpg"
+  <div class="page-container test-image-container">
+    <enhanced:img
+      src={image}
       alt="The rainbow bridge in Tokyo on a cloudy day. Phootographed from Odaiba."
       class="test-image"
     />
@@ -90,6 +91,10 @@
     display: flex;
     top: 0;
     left: 0;
+  }
+  :global(.test-image-container picture) {
+    height: auto;
+    margin: auto;
   }
   .test-image {
     width: 50vw;
