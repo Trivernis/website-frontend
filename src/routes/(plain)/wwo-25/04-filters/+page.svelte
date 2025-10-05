@@ -109,6 +109,11 @@
     margin-right: 0;
     transition-duration: 1s;
   }
+
+  :global(.filter-wheel *, .filter-wheel::before, .filter-wheel::after) {
+    box-sizing: unset !important;
+  }
+
   .filter {
     height: calc(50% - 15px);
     width: calc(50% - 15px);

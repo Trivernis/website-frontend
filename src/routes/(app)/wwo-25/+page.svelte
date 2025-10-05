@@ -15,7 +15,13 @@
 
 <ContainerMedium>
   <h1>Weird Web October 2025</h1>
-  <Box>
+  <p>
+    These are my submissions to the <a href="https://weirdweboctober.website/"
+      >Weird Web October 2025</a
+    >:
+  </p>
+  <br />
+  <Box margin="wide">
     <a href="/wwo-25/01-transparency">1. Transparency</a>
     <br />
     <a href="/wwo-25/02-maps">2. Maps</a>

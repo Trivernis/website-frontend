@@ -18,7 +18,7 @@
   <link rel="preload" as="fetch" href={preloadHref} />
 </svelte:head>
 
-<div class="page crt">
+<div class="page crt main">
   <Header />
   <div class="content">
     {@render children()}
@@ -30,6 +30,16 @@
 
 <style lang="scss">
   @import "$lib/vars.scss";
+
+  :global(body) {
+    background-color: var(--color-background);
+  }
+
+  .main {
+    font-family: var(--font-primary);
+    color: var(--color-foreground);
+    font-size: 12pt;
+  }
 
   @layer layout {
     .page {

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import "../../global.scss";
   import type { Snippet } from "svelte";
   import { page } from "$app/state";
 
