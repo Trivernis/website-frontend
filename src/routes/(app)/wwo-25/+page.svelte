@@ -31,6 +31,8 @@
     <a href="/wwo-25/04-filters">4. Filters</a>
     <br />
     <a href="/wwo-25/05-remix">5. Remix</a>
+    <br />
+    <a href="/wwo-25/06-solids">6. Solids</a>
   </Box>
   <div class="pad"></div>
 </ContainerMedium>

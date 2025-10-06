@@ -31,7 +31,7 @@
   }
 </script>
 
-<MetaTags title="Filters" description="Weird Web October 2025 - 3. Filters" />
+<MetaTags title="Filters" description="Weird Web October 2025 - 4. Filters" />
 
 <svelte:head>
   <link rel="octo:octothorpes" href="weirdweboctober" />
@@ -45,7 +45,7 @@
   <div class="page-container test-image-container">
     <enhanced:img
       src={image}
-      alt="The rainbow bridge in Tokyo on a cloudy day. Phootographed from Odaiba."
+      alt="The rainbow bridge in Tokyo on a cloudy day. Photographed from Odaiba."
       class="test-image"
     />
   </div>

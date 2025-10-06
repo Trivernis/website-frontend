@@ -32,7 +32,7 @@
 
 <MetaTags
   title="Remix! Remix! Remix!"
-  description="Weird Web October 2025 - 3. Remix"
+  description="Weird Web October 2025 - 5. Remix"
 />
 
 <svelte:head>
