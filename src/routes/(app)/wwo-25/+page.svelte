@@ -33,6 +33,8 @@
     <a href="/wwo-25/05-remix">5. Remix</a>
     <br />
     <a href="/wwo-25/06-solids">6. Solids</a>
+    <br />
+    <a href="/wwo-25/07-sub-optimal">7. Sub-optimal</a>
   </Box>
   <div class="pad"></div>
 </ContainerMedium>
