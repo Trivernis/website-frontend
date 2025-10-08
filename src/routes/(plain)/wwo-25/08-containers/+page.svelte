@@ -2,8 +2,9 @@
   import { MetaTags } from "svelte-meta-tags";
   import dockerLogo from "$lib/assets/docker-mark-blue.png?enhanced";
   import foodContainer from "$lib/assets/food-container.jpg?enhanced";
+  import paperContainer from "$lib/assets/paper-container.jpg?enhanced";
 
-  const images = [dockerLogo, foodContainer];
+  const images = [dockerLogo, foodContainer, paperContainer];
 
   function selectImage() {
     const selectedImage = Math.floor(Math.random() * images.length);
