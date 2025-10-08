@@ -1,5 +1,14 @@
 <script lang="ts">
   import { MetaTags } from "svelte-meta-tags";
+  import dockerLogo from "$lib/assets/docker-mark-blue.png?enhanced";
+  import foodContainer from "$lib/assets/food-container.jpg?enhanced";
+
+  const images = [dockerLogo, foodContainer];
+
+  function selectImage() {
+    const selectedImage = Math.floor(Math.random() * images.length);
+    return images[selectedImage];
+  }
 </script>
 
 <MetaTags
@@ -16,12 +25,43 @@
   <div class="back" role="application">
     <a href="./">Back</a>
   </div>
+  <h1 class="ctoa">Open the Container</h1>
   <div class="container">
     <div class="container-outline"></div>
-    <div class="container-contents"></div>
+    <div class="container-contents">
+      <enhanced:img
+        src={selectImage()}
+        alt="The docker logo"
+        class="sub"
+        fetchpriority="high"
+      />
+      <span>I know it's not perfect but I was short on time.</span>
+    </div>
     <div class="container-door-left"></div>
     <div class="container-door-right"></div>
   </div>
+  <span class="sources">
+    <a
+      href="https://commons.wikimedia.org/wiki/File:Multi-Modal_Transport_Container.svg"
+      >Container SVG</a
+    >: algotruneman, CC0, via Wikimedia Commons<br />
+    <a
+      href="https://commons.wikimedia.org/wiki/File:2022-10-10_Altpapier-Container_unter_Starenschwarm_in_einer_Platane_in_der_Schillerstra%C3%9Fe_von_Hannover.jpg"
+      >Paper Container</a
+    >: Bernd Schwabe in Hannover,
+    <a
+      href="https://commons.wikimedia.org/wiki/File:Container,_aluminium_(AM_2014.56.30-2).jpg"
+      >CC BY-SA 3.0</a
+    >, via Wikimedia Commons<br />
+    <a
+      href="https://commons.wikimedia.org/wiki/File:Container,_aluminium_(AM_2014.56.30-2).jpg"
+      >Food Container</a
+    >: Auckland Museum,
+    <a
+      href="Auckland Museum, CC BY 4.0 <https://creativecommons.org/licenses/by/4.0>, via Wikimedia Commons"
+      >CC BY 4.0 , via Wikimedia Commons
+    </a></span
+  >
 </div>
 
 <style lang="scss">
@@ -41,6 +81,13 @@
     right: 0;
     bottom: 0;
     z-index: -200;
+    flex-direction: column;
+  }
+
+  .ctoa {
+    margin: auto;
+    text-align: center;
+    font-size: 5em;
   }
 
   .container {
@@ -95,11 +142,24 @@
     }
 
     .container-contents {
-      background-color: red;
       top: 6.5%;
       left: 6.5%;
       bottom: 9%;
       right: 7%;
+      display: flex;
+      flex-direction: column;
+
+      picture {
+        display: contents;
+      }
+
+      img {
+        display: block;
+        max-height: 80%;
+        max-width: 80%;
+        object-fit: contain;
+        margin: auto;
+      }
     }
   }
 
@@ -112,5 +172,14 @@
 
   .back {
     position: absolute;
+  }
+
+  .sources {
+    color: #222;
+    padding: 16px;
+    font-size: 0.8em;
+    a {
+      color: #222;
+    }
   }
 </style>
