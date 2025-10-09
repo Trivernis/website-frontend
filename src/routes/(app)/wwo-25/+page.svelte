@@ -37,6 +37,8 @@
     <a href="/wwo-25/07-sub-optimal">7. Sub-optimal</a>
     <br />
     <a href="/wwo-25/08-containers">8. Containers</a>
+    <br />
+    <a href="/wwo-25/09-blink">9. Blink</a>
   </Box>
   <div class="pad"></div>
 </ContainerMedium>
