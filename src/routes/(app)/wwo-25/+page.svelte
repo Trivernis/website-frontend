@@ -43,7 +43,7 @@
     <a href="/wwo-25/09-blink">9. Blink</a>
     {#if showWarning}
       <br />
-      <a href="/wwo-25/09-blink">10. Warning</a>
+      <a href="/wwo-25/10-warning">10. Warning</a>
     {/if}
   </Box>
   <div class="pad"></div>
