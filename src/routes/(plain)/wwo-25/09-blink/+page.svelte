@@ -11,7 +11,7 @@
   });
 </script>
 
-<MetaTags title="Containers" description="Weird Web October 2025 - 9. Blink" />
+<MetaTags title="Busy Server" description="Weird Web October 2025 - 9. Blink" />
 
 <svelte:head>
   <link rel="octo:octothorpes" href="weirdweboctober" />
