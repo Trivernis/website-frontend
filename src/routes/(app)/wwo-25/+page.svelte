@@ -2,8 +2,6 @@
   import Box from "../../../components/atoms/Box.svelte";
   import ContainerMedium from "../../../components/atoms/ContainerMedium.svelte";
   import { MetaTags } from "svelte-meta-tags";
-
-  const showWarning = new Date() > new Date("2025-10-10T00:00:00");
 </script>
 
 <MetaTags
@@ -41,10 +39,8 @@
     <a href="/wwo-25/08-containers">8. Containers</a>
     <br />
     <a href="/wwo-25/09-blink">9. Blink</a>
-    {#if showWarning}
-      <br />
-      <a href="/wwo-25/10-warning">10. Warning</a>
-    {/if}
+    <br />
+    <a href="/wwo-25/10-warning">10. Warning</a>
   </Box>
   <div class="pad"></div>
 </ContainerMedium>
