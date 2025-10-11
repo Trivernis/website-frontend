@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { onMount } from "svelte";
   import { MetaTags } from "svelte-meta-tags";
   import kite from "$lib/assets/kite.jpg?enhanced";
 
