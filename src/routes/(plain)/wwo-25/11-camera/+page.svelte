@@ -19,6 +19,18 @@
       console.log("pos", sliderPosition);
     }
   }
+
+  let activeTouch: Touch | undefined;
+
+  function handleTouchMove(event: TouchEvent) {
+    for (const touch of event.touches) {
+      if (touch.identifier === activeTouch?.identifier) {
+        const mvX = touch.pageX - activeTouch?.pageX;
+        activeTouch = touch;
+        moveSlider(mvX);
+      }
+    }
+  }
 </script>
 
 <MetaTags
@@ -37,7 +49,11 @@
   onmouseup={() => {
     mouseDown = false;
   }}
+  ontouchend={() => {
+    mouseDown = false;
+  }}
   onmousemove={(event) => moveSlider(event.movementX)}
+  ontouchmove={handleTouchMove}
 >
   <div class="back" role="application">
     <a href="./">Back</a>
@@ -66,6 +82,10 @@
       style="left: -{sliderPosition}px"
       onmousedown={() => {
         mouseDown = true;
+      }}
+      ontouchstart={(touch) => {
+        mouseDown = true;
+        activeTouch = touch.targetTouches.item(0) ?? undefined;
       }}
     >
       {#each { length: 1000 } as _, i}
