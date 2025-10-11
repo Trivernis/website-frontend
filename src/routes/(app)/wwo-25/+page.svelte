@@ -41,6 +41,8 @@
     <a href="/wwo-25/09-blink">9. Blink</a>
     <br />
     <a href="/wwo-25/10-warning">10. Warning</a>
+    <br />
+    <a href="/wwo-25/11-camera">11. Camera</a>
   </Box>
   <div class="pad"></div>
 </ContainerMedium>
