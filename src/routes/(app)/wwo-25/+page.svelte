@@ -43,6 +43,8 @@
     <a href="/wwo-25/10-warning">10. Warning</a>
     <br />
     <a href="/wwo-25/11-camera">11. Camera</a>
+    <br />
+    <a href="/wwo-25/12-battle">12. Battle</a>
   </Box>
   <div class="pad"></div>
 </ContainerMedium>
