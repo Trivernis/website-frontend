@@ -32,7 +32,6 @@
     delta: number,
   ): Critter[] {
     const normSpeed = delta / UPDT_INT;
-    console.log("normSpeed", normSpeed);
 
     return positions.map((pos) => {
       const healthSpeed = pos.health / 100;
