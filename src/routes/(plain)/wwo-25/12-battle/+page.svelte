@@ -34,7 +34,7 @@
     const normSpeed = delta / UPDT_INT;
 
     return positions.map((pos) => {
-      const healthSpeed = pos.health / 100;
+      const healthSpeed = (pos.health / 100) * 2;
       const speedMod = normSpeed * healthSpeed;
 
       const closestOther = others.toSorted(
@@ -61,6 +61,7 @@
       }
 
       let fightOrFlight = 1;
+
       if (closestOther.health > pos.health) {
         fightOrFlight = -1;
       }
