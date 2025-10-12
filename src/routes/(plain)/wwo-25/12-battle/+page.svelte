@@ -37,9 +37,14 @@
       const healthSpeed = (pos.health / 100) * 2;
       const speedMod = normSpeed * healthSpeed;
 
-      const closestOther = others.toSorted(
+      const closestTeam = positions.toSorted(
         (b1, b2) => distance(b1, pos) - distance(b2, pos),
-      )[0];
+      );
+      const closestOthers = others.toSorted(
+        (b1, b2) => distance(b1, pos) - distance(b2, pos),
+      );
+
+      const closestOther = closestOthers[0];
 
       const randomMove = {
         ...pos,
@@ -62,7 +67,14 @@
 
       let fightOrFlight = 1;
 
-      if (closestOther.health > pos.health) {
+      const othersTeamHealth = closestOthers
+        .slice(0, 5)
+        .reduce((acc, o) => acc + o.health, 0);
+      const teamHealth = closestTeam
+        .slice(0, 5)
+        .reduce((acc, o) => acc + o.health, 0);
+
+      if (teamHealth < othersTeamHealth) {
         fightOrFlight = -1;
       }
 
