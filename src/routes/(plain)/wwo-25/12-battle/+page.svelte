@@ -1,6 +1,5 @@
 <script lang="ts">
   import { tickCritter, type Critter, type World } from "$lib/wwo/critter";
-  import { onMount } from "svelte";
   import { MetaTags } from "svelte-meta-tags";
 
   const UPDT_INT = Math.round(1000 / 15);
@@ -15,7 +14,14 @@
     const delta = Date.now() - lastUpdate;
     lastUpdate = Date.now();
 
-    const world: World = { critters, damages: {} };
+    const world: World = {
+      critters,
+      damages: {},
+      populationCount: {
+        0: critters.filter((c) => c.team === 0).length,
+        1: critters.filter((c) => c.team === 1).length,
+      },
+    };
     const newCritters = [];
 
     for (const critter of critters) {
@@ -52,7 +58,7 @@
 
     const critterInit: Critter[] = [];
 
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 50; i++) {
       critterInit.push({
         id: `red-${i}`,
         team: 0,
@@ -95,6 +101,15 @@
   <div class="back" role="application">
     <a href="./">Back</a>
   </div>
+  <span class="stats">
+    <span class="stats-red"
+      >Red: {critters.filter((c) => c.team === 0).length}</span
+    >
+    &nbsp;
+    <span class="stats-blue"
+      >Blue: {critters.filter((c) => c.team === 1).length}</span
+    >
+  </span>
   <div class="battlefield">
     {#each critters as critter (critter.id)}
       <div
@@ -157,10 +172,22 @@
     }
 
     .red {
-      background-color: red;
+      background-color: #f77;
     }
     .blue {
-      background-color: blue;
+      background-color: #78f;
+    }
+  }
+
+  .stats {
+    width: 100%;
+    text-align: center;
+
+    .stats-red {
+      color: #f77;
+    }
+    .stats-blue {
+      color: #78f;
     }
   }
 

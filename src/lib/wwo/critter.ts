@@ -13,12 +13,15 @@ export type Position = {
 export type World = {
 	critters: Critter[];
 	damages: Record<string, number>;
+	populationCount: Record<number, number>;
 };
 
 const BASE_ATK_DMG = 10;
 const MAX_HEALTH = 100;
+const HEAL_AMT = 1;
 const BASE_MVM_SPD = 1;
 const ATK_RANGE = 3;
+const CELL_DIV_PROB_BASE = 0.1;
 
 export function tickCritter(
 	critter: Critter,
@@ -28,21 +31,19 @@ export function tickCritter(
 	const closestCritters = crittersInRange(critter.pos, ATK_RANGE, world);
 	const closestEnemies = closestCritters.filter((c) => c.team !== critter.team);
 	const closestAllies = closestCritters.filter((c) => c.team === critter.team);
-	let moveMode = "enemy";
 
+	let moveMode = "enemy";
 	let atkProb = 0;
 
 	if (closestEnemies.length > 0) {
-		moveMode = "enemy";
-
 		if (closestEnemies.length > closestAllies.length) {
-			atkProb *= closestAllies.length / closestEnemies.length;
 			moveMode = "flee";
+			atkProb *= closestAllies.length / closestEnemies.length;
 		} else if (closestEnemies.length === closestAllies.length) {
 			moveMode = "ally";
 			const enemyHealth = closestEnemies.reduce((acc, c) => acc + c.health, 0);
 			const allyHealth = closestAllies.reduce((acc, c) => acc + c.health, 0);
-			atkProb *= enemyHealth / allyHealth;
+			atkProb *= allyHealth / enemyHealth;
 		} else {
 			atkProb = 0.8;
 		}
@@ -61,7 +62,26 @@ export function tickCritter(
 			world.damages[enemy.id] =
 				(1 - distance(critter.pos, enemy.pos) / ATK_RANGE) * baseDmg;
 		}
-	} else if (moveMode === "enemy") {
+		return critter;
+	}
+
+	critter.health = Math.min(critter.health + HEAL_AMT, 100);
+
+	// cell division
+	if (
+		critter.health > 90 &&
+		Math.random() <=
+			CELL_DIV_PROB_BASE * (1 - world.populationCount[critter.team] / 100)
+	) {
+		world.critters.push({
+			...critter,
+			health: critter.health / 3,
+			id: `${critter.id}-c${Date.now()}`,
+		});
+		critter.health /= 3;
+	}
+
+	if (moveMode === "enemy") {
 		const closestEnemy = world.critters
 			.filter((c) => c.team !== critter.team)
 			.sort(
