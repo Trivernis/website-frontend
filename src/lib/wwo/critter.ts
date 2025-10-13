@@ -65,11 +65,11 @@ export function tickCritter(
 		return critter;
 	}
 
-	critter.health = Math.min(critter.health + HEAL_AMT, 100);
+	critter.health = Math.min(critter.health + HEAL_AMT, MAX_HEALTH);
 
 	// cell division
 	if (
-		critter.health > 90 &&
+		critter.health > MAX_HEALTH * 0.9 &&
 		Math.random() <=
 			CELL_DIV_PROB_BASE * (1 - world.populationCount[critter.team] / 100)
 	) {
