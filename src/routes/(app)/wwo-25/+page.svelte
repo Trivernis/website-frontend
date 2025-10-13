@@ -45,6 +45,8 @@
     <a href="/wwo-25/11-camera">11. Camera</a>
     <br />
     <a href="/wwo-25/12-battle">12. Battle</a>
+    <br />
+    <a href="/wwo-25/13-upside-down">13. Upside-down</a>
   </Box>
   <div class="pad"></div>
 </ContainerMedium>
