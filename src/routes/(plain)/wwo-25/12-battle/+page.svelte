@@ -1,131 +1,12 @@
 <script lang="ts">
+  import { tickCritter, type Critter, type World } from "$lib/wwo/critter";
   import { onMount } from "svelte";
   import { MetaTags } from "svelte-meta-tags";
 
-  type Critter = {
-    id: string;
-    x: number;
-    y: number;
-    dead: boolean;
-    health: number;
-  };
-
   const UPDT_INT = Math.round(1000 / 15);
 
-  let redPositions: Critter[] = $state([]);
-  let bluePositions: Critter[] = $state([]);
+  let critters: Critter[] = $state([]);
   let winner: string | undefined = $state(undefined);
-
-  function clamp(num: number, min: number, max: number): number {
-    return Math.max(Math.min(num, max), min);
-  }
-
-  function distance(pos1: Critter, pos2: Critter): number {
-    return Math.sqrt(
-      Math.abs(pos2.x - pos1.x) ** 2 + Math.abs(pos2.y - pos1.y) ** 2,
-    );
-  }
-
-  function move(
-    positions: Critter[],
-    others: Critter[],
-    delta: number,
-  ): Critter[] {
-    const normSpeed = delta / UPDT_INT;
-
-    return positions.map((pos) => {
-      const healthSpeed = (pos.health / 100) * 2;
-      const speedMod = normSpeed * healthSpeed;
-
-      const closestTeam = positions.toSorted(
-        (b1, b2) => distance(b1, pos) - distance(b2, pos),
-      );
-      const closestOthers = others.toSorted(
-        (b1, b2) => distance(b1, pos) - distance(b2, pos),
-      );
-
-      const closestOther = closestOthers[0];
-
-      const randomMove = {
-        ...pos,
-        x:
-          Math.round(
-            clamp(
-              pos.x + (Math.round(Math.random() * 2) - 1) * speedMod,
-              0,
-              100,
-            ),
-          ) * normSpeed,
-        y: Math.round(
-          clamp(pos.y + (Math.round(Math.random() * 2) - 1) * speedMod, 0, 100),
-        ),
-      };
-
-      if (!closestOther || Math.random() > 0.99) {
-        return randomMove;
-      }
-
-      let fightOrFlight = 1;
-
-      const othersTeamHealth = closestOthers
-        .slice(0, 5)
-        .reduce((acc, o) => acc + o.health, 0);
-      const teamHealth = closestTeam
-        .slice(0, 5)
-        .reduce((acc, o) => acc + o.health, 0);
-
-      if (teamHealth < othersTeamHealth) {
-        fightOrFlight = -1;
-      }
-
-      const xDistance = closestOther.x - pos.x;
-      const yDistance = closestOther.y - pos.y;
-
-      const moveDirection = {
-        x: 0,
-        y: 0,
-      };
-
-      if (Math.abs(xDistance) > Math.abs(yDistance)) {
-        if (xDistance > 1) {
-          moveDirection.x = 1;
-        } else {
-          moveDirection.x = -1;
-        }
-      } else {
-        if (yDistance > 1) {
-          moveDirection.y = 1;
-        } else {
-          moveDirection.y = -1;
-        }
-      }
-
-      return {
-        ...pos,
-        x: clamp(pos.x + moveDirection.x * speedMod * fightOrFlight, 0, 100),
-        y: clamp(pos.y + moveDirection.y * speedMod * fightOrFlight, 0, 100),
-      };
-    });
-  }
-
-  function updateHealth(critter: Critter, enemies: Critter[]) {
-    const inRange = enemies.filter((e) => distance(e, critter) < 5);
-    const totalDamage = inRange
-      .map((e) => (e.health / 10) * (5 / distance(e, critter)))
-      .reduce((acc, cur) => {
-        acc += cur;
-        return acc;
-      }, 0);
-
-    const newCritter = { ...critter };
-    newCritter.health -= Math.max(totalDamage, 0);
-
-    if (newCritter.health <= 0) {
-      newCritter.dead = true;
-    }
-
-    return newCritter;
-  }
 
   let interval: number;
   let lastUpdate = Date.now();
@@ -134,56 +15,67 @@
     const delta = Date.now() - lastUpdate;
     lastUpdate = Date.now();
 
-    const updatedRed = redPositions
-      .map((red) => updateHealth(red, bluePositions))
-      .filter((c) => !c.dead);
-    const updatedBlue = bluePositions
-      .map((blue) => updateHealth(blue, redPositions))
-      .filter((c) => !c.dead);
+    const world: World = { critters, damages: {} };
+    const newCritters = [];
 
-    if (updatedRed.length === 0 && updatedBlue.length > 0) {
+    for (const critter of critters) {
+      newCritters.push(tickCritter(critter, world, delta / UPDT_INT));
+    }
+
+    for (const critter of newCritters) {
+      const dmg = world.damages[critter.id];
+
+      if (dmg) {
+        critter.health = Math.max(critter.health - dmg, 0);
+      }
+    }
+
+    critters = newCritters.filter((c) => c.health > 0);
+
+    const redCount = critters.filter((c) => c.team === 0).length;
+    const blueCount = critters.filter((c) => c.team === 1).length;
+
+    if (redCount === 0 && blueCount > 0) {
       winner = "BLUE";
       clearInterval(interval);
-    } else if (updatedRed.length > 0 && updatedBlue.length === 0) {
+    } else if (redCount > 0 && blueCount === 0) {
       winner = "RED";
       clearInterval(interval);
-    } else if (updatedRed.length === 0 && updatedBlue.length === 0) {
+    } else if (redCount === 0 && blueCount === 0) {
       winner = "Nobody";
       clearInterval(interval);
     }
-
-    const newRed = move(updatedRed, updatedBlue, delta);
-    bluePositions = move(updatedBlue, updatedRed, delta);
-    redPositions = newRed;
   }
 
   function reset() {
     interval = setInterval(tick, UPDT_INT);
 
-    const redInit: Critter[] = [];
-    const blueInit: Critter[] = [];
+    const critterInit: Critter[] = [];
 
     for (let i = 0; i < 100; i++) {
-      redInit.push({
+      critterInit.push({
         id: `red-${i}`,
-        x: Math.random() * 10 + 5,
-        y: Math.random() * 90 + 5,
-        dead: false,
+        team: 0,
+        pos: {
+          x: Math.random() * 10 + 5,
+          y: Math.random() * 90 + 5,
+        },
         health: 100,
       });
-      blueInit.push({
+      critterInit.push({
         id: `blue-${i}`,
-        x: 90 + (Math.random() * 10 - 5),
-        y: Math.random() * 90 + 5,
-        dead: false,
+        team: 1,
+        pos: {
+          x: 90 + (Math.random() * 10 - 5),
+          y: Math.random() * 90 + 5,
+        },
         health: 100,
       });
     }
 
-    redPositions = redInit;
-    bluePositions = blueInit;
     winner = undefined;
     lastUpdate = Date.now();
+    critters = critterInit;
   }
 
   reset();
@@ -204,11 +96,11 @@
     <a href="./">Back</a>
   </div>
   <div class="battlefield">
-    {#each redPositions as red (red.id)}
-      <div class="red" style="left: {red.x}%; top: {red.y}%"></div>
-    {/each}
-    {#each bluePositions as blue (blue.id)}
-      <div class="blue" style="left: {blue.x}%; top: {blue.y}%"></div>
+    {#each critters as critter (critter.id)}
+      <div
+        class={critter.team === 0 ? "red" : "blue"}
+        style="left: {critter.pos.x}%; top: {critter.pos.y}%"
+      ></div>
     {/each}
   </div>
   {#if winner}
