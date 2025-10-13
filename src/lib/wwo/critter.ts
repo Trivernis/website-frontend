@@ -16,10 +16,11 @@ export type World = {
 	populationCount: Record<number, number>;
 };
 
-const BASE_ATK_DMG = 10;
+const BASE_ATK_DMG = 2;
 const MAX_HEALTH = 100;
 const HEAL_AMT = 1;
 const BASE_MVM_SPD = 1;
+const DEF_DMG_MOD = 0.2;
 const ATK_RANGE = 3;
 const CELL_DIV_PROB_BASE = 0.1;
 
@@ -59,8 +60,16 @@ export function tickCritter(
 		const baseDmg = BASE_ATK_DMG * (critter.health / MAX_HEALTH);
 
 		for (const enemy of closestEnemies) {
-			world.damages[enemy.id] =
+			if (!world.damages[enemy.id]) {
+				world.damages[enemy.id] = 0;
+			}
+			world.damages[enemy.id] +=
 				(1 - distance(critter.pos, enemy.pos) / ATK_RANGE) * baseDmg;
+			critter.health = Math.max(
+				critter.health -
+					BASE_ATK_DMG * (enemy.health / MAX_HEALTH) * DEF_DMG_MOD,
+				1,
+			);
 		}
 		return critter;
 	}
