@@ -44,7 +44,7 @@
   <div class="back" role="application">
     <a href="./">Back</a>
   </div>
-  <div class="button-list">
+  <div class="button-list buttons">
     {@render renderTree(buttonTree, 0)}
   </div>
 </div>
@@ -71,6 +71,12 @@
     z-index: -200;
     flex-direction: column;
     padding: 16px;
+  }
+
+  @media (max-width: 800px) {
+    .buttons {
+      font-size: 0.5em;
+    }
   }
 
   .button-list {
