@@ -47,6 +47,8 @@
     <a href="/wwo-25/12-battle">12. Battle</a>
     <br />
     <a href="/wwo-25/13-upside-down">13. Upside-down</a>
+    <br />
+    <a href="/wwo-25/14-doubles">14. Doubles</a>
   </Box>
   <div class="pad"></div>
 </ContainerMedium>
