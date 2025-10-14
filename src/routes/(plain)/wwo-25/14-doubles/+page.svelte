@@ -78,6 +78,8 @@
     width: auto;
     display: grid;
     margin: auto;
+    max-width: 100%;
+    max-height: 100%;
   }
 
   .list-v {
