@@ -105,6 +105,7 @@
     width: 100%;
     height: 100%;
     padding: 0.125em 0.25em;
+    cursor: pointer;
   }
 
   .back {
