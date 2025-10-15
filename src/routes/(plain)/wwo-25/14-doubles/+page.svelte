@@ -106,6 +106,7 @@
     height: 100%;
     padding: 0.125em 0.25em;
     cursor: pointer;
+    transition-duration: 0.3s;
   }
 
   .back {
