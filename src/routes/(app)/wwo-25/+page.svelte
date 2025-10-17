@@ -53,6 +53,8 @@
     <a href="/wwo-25/15-unicode">15. Unicode</a>
     <br />
     <a href="/wwo-25/16-transition">16. Transition</a>
+    <br />
+    <a href="/wwo-25/17-illumination">17. Illumination</a>
   </Box>
   <div class="pad"></div>
 </ContainerMedium>
