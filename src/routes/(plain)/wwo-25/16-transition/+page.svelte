@@ -54,20 +54,29 @@
   .fresh {
     margin: auto;
     display: block;
-    height: 80%;
-    width: 80%;
+    height: min(90vh, 90vw);
+    width: min(90vh, 90vw);
+    width: auto;
+    aspect-ratio: 1 / 1;
     object-fit: contain;
   }
 
   .fresh-overlay {
     position: absolute;
-    left: calc(((max(100vh, 100vw) - min(100vh, 100vw)) / 2) * 0.8);
+    margin: 0;
+    left: 0;
     background: rgba(0, 0, 0, 0);
     height: min(100vh, 100vw);
-    width: calc(min(100vh, 100vw) * 1.2);
+    width: min(100vh, 100vw);
     animation-name: reveal-fresh;
     animation-duration: 2s;
     animation-timing-function: cubic-bezier();
+  }
+
+  @media (aspect-ratio > 1/1) {
+    .fresh-overlay {
+      left: calc(((max(100vh, 100vw) - min(100vh, 100vw)) / 2));
+    }
   }
 
   .back {
