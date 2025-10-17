@@ -108,6 +108,12 @@
     border-radius: 100%;
   }
 
+  @media (max-width: 900px) {
+    .page {
+      font-size: 0.4em;
+    }
+  }
+
   .back {
     position: absolute;
   }
