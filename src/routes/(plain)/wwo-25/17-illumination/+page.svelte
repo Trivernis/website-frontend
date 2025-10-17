@@ -8,13 +8,16 @@
     y: 0,
   });
 
+  let cursorPosition = $state({ x: 0, y: 0 });
+
   function updateShadow(cursorPos: { x: number; y: number }) {
+    cursorPosition = cursorPos;
     if (!targetText) {
       return;
     }
     const rect = targetText.getBoundingClientRect();
-    shadowPosition.x = (rect.x - cursorPos.x) / 10;
-    shadowPosition.y = (rect.y - cursorPos.y) / 10;
+    shadowPosition.x = (rect.x + rect.width / 2 - cursorPos.x) / 10;
+    shadowPosition.y = (rect.y + rect.height / 2 - cursorPos.y) / 10;
   }
 </script>
 
@@ -44,10 +47,18 @@
   <h1
     class="target-text"
     bind:this={targetText}
-    style="text-shadow: {shadowPosition.x}px {shadowPosition.y}px 5px black"
+    style="text-shadow: {shadowPosition.x}px {shadowPosition.y}px 15px black"
   >
     Illumination
   </h1>
+  <div
+    class="light-overlay"
+    style="top: calc({cursorPosition.y}px - 40em); left: calc({cursorPosition.x}px - 40em)"
+  ></div>
+  <div
+    class="black-overlay"
+    style="top: calc({cursorPosition.y}px - 50em); left: calc({cursorPosition.x}px - 50em)"
+  ></div>
 </div>
 
 <style lang="scss">
@@ -78,6 +89,23 @@
   .target-text {
     font-size: 10em;
     margin: auto;
+  }
+
+  .light-overlay {
+    position: absolute;
+    outline: 1000px solid black;
+    height: 80em;
+    width: 80em;
+    border-radius: 100%;
+    box-shadow: inset 0 0 10em black;
+  }
+
+  .black-overlay {
+    position: absolute;
+    outline: 10000px solid black;
+    height: 100em;
+    width: 100em;
+    border-radius: 100%;
   }
 
   .back {
