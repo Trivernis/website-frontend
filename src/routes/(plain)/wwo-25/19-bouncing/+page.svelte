@@ -8,18 +8,17 @@
   type Ball = {
     x: number;
     y: number;
-    vx: number;
     vy: number;
   };
 
   let balls: Ball[] = $state([
-    { x: 10, y: 50, vx: 0, vy: 0 },
-    { x: 22.5, y: 70, vx: 0, vy: 0 },
-    { x: 35, y: 20, vx: 0, vy: 0 },
-    { x: 47.5, y: 47.5, vx: 0, vy: 0 },
-    { x: 55, y: 1, vx: 0, vy: 0 },
-    { x: 67.5, y: 80, vx: 0, vy: 0 },
-    { x: 90, y: 30, vx: 0, vy: 0 },
+    { x: 10, y: 50, vy: 0 },
+    { x: 22.5, y: 70, vy: 0 },
+    { x: 35, y: 20, vy: 0 },
+    { x: 47.5, y: 47.5, vy: 0 },
+    { x: 55, y: 1, vy: 0 },
+    { x: 67.5, y: 80, vy: 0 },
+    { x: 90, y: 30, vy: 0 },
   ]);
 
   function tickBall(ball: Ball, delta: number) {
