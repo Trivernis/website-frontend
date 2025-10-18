@@ -2,7 +2,7 @@
   import { MetaTags } from "svelte-meta-tags";
 
   let asking = $state(true);
-  import fresh from "$lib/assets/tiny-shrimp.jpg?enhanced";
+  import shrimp from "$lib/assets/tiny-shrimp.jpg?enhanced";
 </script>
 
 <MetaTags
@@ -15,16 +15,7 @@
   <link rel="octo:octothorpes" href="Trading" />
 </svelte:head>
 
-<div
-  class="page"
-  onmousemove={(event) => updateShadow({ x: event.pageX, y: event.pageY })}
-  ontouchmove={(event) =>
-    updateShadow({
-      x: event.touches.item(0)?.pageX ?? 0,
-      y: event.touches.item(0)?.pageY ?? 0,
-    })}
-  role="application"
->
+<div class="page" role="application">
   <div class="back" role="application">
     <a href="./">Back</a>
   </div>
@@ -38,7 +29,7 @@
     >
   {:else}
     <enhanced:img
-      src={fresh}
+      src={shrimp}
       alt="An image of a tiny translucent dwarf shrimp walking down a root."
       class="shrimp"
       fetchpriority="high"
@@ -47,9 +38,6 @@
 </div>
 
 <style lang="scss">
-  :root {
-    --blink-background: #fcc;
-  }
   .page {
     font-size: 10pt;
     background: #392f5a;
