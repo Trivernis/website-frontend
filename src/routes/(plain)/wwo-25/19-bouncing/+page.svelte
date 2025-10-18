@@ -64,13 +64,13 @@
 </script>
 
 <MetaTags
-  title="Trading your Soul"
-  description="Weird Web October 2025 - 18. Trading"
+  title="Bouncing balls"
+  description="Weird Web October 2025 - 19. Bouncing"
 />
 
 <svelte:head>
   <link rel="octo:octothorpes" href="weirdweboctober" />
-  <link rel="octo:octothorpes" href="Trading" />
+  <link rel="octo:octothorpes" href="Bouncing" />
 </svelte:head>
 
 <div class="page" role="application">
