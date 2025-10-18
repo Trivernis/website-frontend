@@ -1,8 +1,5 @@
 <script lang="ts">
   import { MetaTags } from "svelte-meta-tags";
-
-  let asking = $state(true);
-  import fresh from "$lib/assets/tiny-shrimp.jpg?enhanced";
   import { onMount } from "svelte";
 
   type Ball = {
