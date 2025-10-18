@@ -59,7 +59,7 @@
 </script>
 
 <MetaTags
-  title="Bouncing balls"
+  title="Bouncing Balls"
   description="Weird Web October 2025 - 19. Bouncing"
 />
 
