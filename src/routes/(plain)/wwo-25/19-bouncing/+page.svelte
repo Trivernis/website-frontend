@@ -24,20 +24,25 @@
 
   function tickBall(ball: Ball, delta: number) {
     if (ball.y < 95 && ball.y > 0) {
+      //gravity
       ball.vy += 9.81 * delta;
+      ball.vy -= ball.vy * 0.001;
     } else if (ball.y <= 0 || ball.y >= 95) {
       ball.vy = -ball.vy;
+      ball.y = Math.max(Math.min(ball.y, 95), 0);
     }
 
     ball.y += ball.vy * delta;
 
     if (ball.y >= 95) {
-      ball.y = 95;
+      if (ball.y > 95.2) {
+        console.log(ball);
+        ball.y = 96;
+      }
     } else if (ball.y <= 0) {
       ball.y = 0;
     }
 
-    console.log(ball);
     return ball;
   }
 
@@ -77,9 +82,9 @@
       <div
         class="ball"
         data-debug={(5 - Math.max(ball.y - 95, 0)) / 5}
-        style="top: {ball.y}%; left: {ball.x}%; transform: scaleY({(5 -
-          Math.max(ball.y - 94, 0)) /
-          5})"
+        style="top: {ball.y}%; left: {ball.x}%; transform: scaleY({(2 -
+          Math.max(ball.y - 95, 0)) /
+          2})"
       ></div>
     {/each}
   </div>
@@ -119,7 +124,7 @@
     height: min(90vh, 90vw);
     width: min(90vh, 90vw);
     margin: auto;
-    border: 2px solid var(--c-secondary);
+    outline: 10px solid var(--c-secondary);
   }
 
   .ball {
