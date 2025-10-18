@@ -35,7 +35,6 @@
 
     if (ball.y >= 95) {
       if (ball.vy > 10) {
-        console.log(ball);
         ball.y = 96;
       }
     } else if (ball.y <= 0) {
