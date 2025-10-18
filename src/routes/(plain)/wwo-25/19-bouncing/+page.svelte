@@ -35,7 +35,7 @@
     ball.y += ball.vy * delta;
 
     if (ball.y >= 95) {
-      if (ball.y > 95.2) {
+      if (ball.vy > 10) {
         console.log(ball);
         ball.y = 96;
       }
