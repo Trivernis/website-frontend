@@ -58,7 +58,7 @@
     <br />
     <a href="/wwo-25/18-trading">18. Trading</a>
     <br />
-    <a href="/wwo-25/19-bouncing">19. Bouncing</a>
+    <a href="/wwo-25/19-bounce">19. Bounce</a>
   </Box>
   <div class="pad"></div>
 </ContainerMedium>

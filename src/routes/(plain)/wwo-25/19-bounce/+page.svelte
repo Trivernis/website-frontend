@@ -60,12 +60,12 @@
 
 <MetaTags
   title="Bouncing Balls"
-  description="Weird Web October 2025 - 19. Bouncing"
+  description="Weird Web October 2025 - 19. Bounce"
 />
 
 <svelte:head>
   <link rel="octo:octothorpes" href="weirdweboctober" />
-  <link rel="octo:octothorpes" href="Bouncing" />
+  <link rel="octo:octothorpes" href="Bounce" />
 </svelte:head>
 
 <div class="page" role="application">
