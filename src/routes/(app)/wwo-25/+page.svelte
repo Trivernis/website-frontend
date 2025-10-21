@@ -59,6 +59,8 @@
     <a href="/wwo-25/18-trading">18. Trading</a>
     <br />
     <a href="/wwo-25/19-bounce">19. Bounce</a>
+    <br />
+    <a href="/wwo-25/20-hidden">20. Hidden</a>
   </Box>
   <div class="pad"></div>
 </ContainerMedium>
