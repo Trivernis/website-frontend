@@ -52,6 +52,12 @@
     margin: auto;
   }
 
+  @media (max-width: 480px) {
+    .boo {
+      font-size: 5em;
+    }
+  }
+
   .back {
     position: absolute;
   }
