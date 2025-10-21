@@ -61,6 +61,8 @@
     <a href="/wwo-25/19-bounce">19. Bounce</a>
     <br />
     <a href="/wwo-25/20-hidden">20. Hidden</a>
+    <br />
+    <a href="/wwo-25/21-language">21. Language</a>
   </Box>
   <div class="pad"></div>
 </ContainerMedium>
