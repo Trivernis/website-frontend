@@ -155,6 +155,7 @@
     border: none;
     margin: 10px;
     transition-duration: 0.2s;
+    cursor: default;
 
     &.state-playing {
       transition-duration: 0.5s;
