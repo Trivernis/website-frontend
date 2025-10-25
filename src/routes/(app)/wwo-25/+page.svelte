@@ -65,6 +65,8 @@
     <a href="/wwo-25/21-language">21. Language</a>
     <br />
     <a href="/wwo-25/22-memory">22. Memory</a>
+    <br />
+    <a href="/wwo-25/23-style">23. Style</a>
   </Box>
   <div class="pad"></div>
 </ContainerMedium>
