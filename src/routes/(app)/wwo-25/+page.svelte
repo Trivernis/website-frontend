@@ -69,6 +69,8 @@
     <a href="/wwo-25/23-style">23. Style</a>
     <br />
     <a href="/wwo-25/24-counter">24. Counter</a>
+    <br />
+    <a href="/wwo-25/25-empty">25. Empty</a>
   </Box>
   <div class="pad"></div>
 </ContainerMedium>
