@@ -3,13 +3,13 @@
 </script>
 
 <MetaTags
-  title="Deprecated"
-  description="Weird Web October 2025 - 30. Deprecated"
+  title="Tables"
+  description="Weird Web October 2025 - 28. Tables"
 />
 
 <svelte:head>
   <link rel="octo:octothorpes" href="weirdweboctober" />
-  <link rel="octo:octothorpes" href="Deprecated" />
+  <link rel="octo:octothorpes" href="Tables" />
 </svelte:head>
 
 <div class="page" role="application">
