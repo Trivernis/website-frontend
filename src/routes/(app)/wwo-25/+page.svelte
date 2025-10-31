@@ -72,6 +72,8 @@
     <br />
     <a href="/wwo-25/25-empty">25. Empty</a>
     <br />
+    <a href="/wwo-25/28-tables">28. Tables</a>
+    <br />
     <a href="/wwo-25/30-deprecated">30. Deprecated</a>
   </Box>
   <div class="pad"></div>
