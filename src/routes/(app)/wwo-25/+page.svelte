@@ -71,6 +71,8 @@
     <a href="/wwo-25/24-counter">24. Counter</a>
     <br />
     <a href="/wwo-25/25-empty">25. Empty</a>
+    <br />
+    <a href="/wwo-25/30-deprecated">30. Deprecated</a>
   </Box>
   <div class="pad"></div>
 </ContainerMedium>
