@@ -8,6 +8,10 @@
   import Socials from "../../components/organisms/Socials.svelte";
 </script>
 
+<svelte:head>
+  <link rel="octo:octothorpes" href="trivernis" />
+</svelte:head>
+
 <ContainerMedium>
   <h1>Welcome to my website</h1>
 
