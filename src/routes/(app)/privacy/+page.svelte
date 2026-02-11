@@ -3,6 +3,10 @@
   import ContainerMedium from "../../../components/atoms/ContainerMedium.svelte";
 </script>
 
+<svelte:head>
+  <link rel="octo:octothorpes" href="privacy-statement" />
+</svelte:head>
+
 <ContainerMedium>
   <Box>
     <h2>Privacy</h2>
